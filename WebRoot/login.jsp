@@ -83,7 +83,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="new_people">
 							<h4>新用户</h4>
 							<p>注册到Java语言翻转课堂教学模式系统，即可开启你全新的学习体验或教学方式，快快加入吧！</p>
-							<a href="register.jsp">现在注册!</a>
+							<a href="register.jsp">教学注册!</a>
+							<a href="register.jsp">学生注册!</a>
 						</div>
 					</div>
 				</div>
