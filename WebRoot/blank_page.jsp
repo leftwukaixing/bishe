@@ -179,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="profile_img">	
 										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>管理员</span></p>
+											<p>吴开星<span>学生</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -205,10 +205,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="error-main">
 						<h3><i class="fa fa-exclamation-triangle"></i> <span>404</span></h3>
 					<div class="col-xs-7 error-main-left">
-						<span>Oops!</span>
-						<p>The page you're looking for could not be found.</p>
+						<span>对不起!</span>
+						<p>您所访问的资源好像被外星人抓走了~~~</p>
 						<div class="error-btn">
-							<a href="index.jsp">Go back?</a>
+							<a href="index.jsp">返回上一级页面?</a>
 						</div>
 					</div>
 					<div class="col-xs-5 error-main-right">

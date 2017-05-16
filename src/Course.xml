@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE struts PUBLIC   
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+    "http://struts.apache.org/dtds/struts-2.0.dtd">   
+<struts>   
+    <constant name="struts.i18n.encoding" value="UTF-8"/>  
+            <!-- 指定默认编码集 ，作用于HttpServletRequest的setCharacterEncoding（）和freemarker，vilocity的输出 -->  
+    <constant name="struts.configuration.xmlreload" value="true"/>  
+            <!-- 当struts配置文件修改时是否自动加载 -->  
+    <constant name="struts.devMode" value="true"/>  
+            <!-- 开发模式下打印详细的错误信息 -->  
+    <constant name="struts.ui.theme" value="xhtml"/> 
+	<package name="course" namespace="/course" extends="struts-default"> 
+    	<action name="uploadCourse">  
+            <result name="success">/WEB-INF/arrageJK/uploadCourse.jsp</result>  
+        </action>
+        <action name="uploadExam">  
+            <result name="success">/WEB-INF/arrageJK/uploadExam.jsp</result>  
+        </action>
+        
+        <action name="uploadMExam">  
+            <result name="success">/WEB-INF/arrageJK/uploadMExam.jsp</result>  
+        </action>
+        
+        <action name="seeM_info"  class="manage.action.m_infoAction">  
+            <result name="success">/WEB-INF/arrageJK/seeM_info.jsp</result>  
+        </action>
+        <action name="seeE_info"  class="manage.action.e_infoAction">  
+            <result name="success">/WEB-INF/arrageJK/seeE_info.jsp</result>  
+        </action>
+        <action name="seejkTime" class="manage.action.e_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/seejkTime.jsp</result>  
+        </action>
+        <action name="arrangejk" class="manage.action.e_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/arrangejk.jsp</result>  
+        </action>
+        <action name="arrangejkM" class="manage.action.m_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/arrangejkM.jsp</result>  
+        </action>
+        <action name="show" class="manage.action.e_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/arrangejk.jsp</result>  
+        </action>
+        <action name="showSelf" class="manage.action.e_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/arrangejk.jsp</result>  
+        </action>
+        <action name="showSelfM" class="manage.action.m_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/arrangejkM.jsp</result>  
+        </action>
+        <action name="showAll" class="manage.action.e_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/arrangejk.jsp</result>
+        </action>
+        <action name="showAllM" class="manage.action.m_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/arrangejkM.jsp</result>
+        </action>
+        <action name="auto_arrangejk" class="manage.action.e_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/auto_arrangejk.jsp</result>  
+        </action>
+        <action name="autoM_arrangejk" class="manage.action.m_manageAction">  
+            <result name="success">/WEB-INF/arrageJK/autoM_arrangejk.jsp</result>  
+        </action>
+        <action name="show_info" class="manage.action.e_manageAction">
+        	<result name="success">/WEB-INF/arrageJK/e_info_information.jsp</result>
+        </action>
+        <action name="show_M_info" class="manage.action.m_manageAction">
+        	<result name="success">/WEB-INF/arrageJK/m_info_information.jsp</result>
+        </action>
+    </package> 
+    <package name="uploadCourse" namespace="/uploadCourse" extends="struts-default"> 
+    	<action name="upload" class="manage.action.courseAction">  
+            <result name="success">/WEB-INF/arrageJK/information.jsp</result>  
+        </action>
+    </package> 
+</struts>  
+

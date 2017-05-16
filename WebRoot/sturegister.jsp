@@ -47,13 +47,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div id="page-wrapper" class="sign-in-wrapper">
 				<div class="graphs">
 					<div class="sign-up">
-						<h3>Register Here</h3>
-						<p class="creating">Having hands on experience in creating innovative designs,I do offer design 
-							solutions which harness.</p>
-						<h5>Personal Information</h5>
+						<h3>学生注册</h3>
+						<p class="creating">注册到Java语言翻转课堂教学模式系统，即可开启你全新的学习体验或教学方式，快快加入吧！</p>
+						<h5>个人信息</h5>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>First Name* :</h4>
+								<h4>学号* :</h4>
 							</div>
 							<div class="sign-up2">
 								<form>
@@ -64,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>Last Name* :</h4>
+								<h4>姓名* :</h4>
 							</div>
 							<div class="sign-up2">
 								<form>
@@ -75,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>Email Address* :</h4>
+								<h4>班级* :</h4>
 							</div>
 							<div class="sign-up2">
 								<form>
@@ -84,10 +83,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						<h6>Login Information</h6>
+						<h6>登录信息</h6>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>Password* :</h4>
+								<h4>密  码* :</h4>
 							</div>
 							<div class="sign-up2">
 								<form>
@@ -98,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>Confirm Password* :</h4>
+								<h4>确认密码* :</h4>
 							</div>
 							<div class="sign-up2">
 								<form>
@@ -110,11 +109,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="sub_home">
 							<div class="sub_home_left">
 								<form>
-									<input type="submit" value="Submit">
+									<input type="submit" value="确认提交">
 								</form>
 							</div>
 							<div class="sub_home_right">
-								<p>Go Back to <a href="index.jsp">Home</a></p>
+								<p>返回<a href="index.jsp">首页</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>

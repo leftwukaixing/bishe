@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="manage.dao.e_infoDao">  
+ 	<insert id="insert_e_info" parameterType="manage.entity.E_Info">
+ 		insert into e_info(paperno,cno,cname,college,teacher,chooseno,already,address,
+ 		numberAll,contines,weekc,datetime,week,time,remark)values
+ 		(#{paperno},#{cno},#{cname},#{college},#{teacher},#{chooseno},#{already},#{address},
+ 		#{numberAll},#{contines},#{weekc},#{datetime},#{week},#{time},#{remark})	
+ 	</insert>
+ 	<select id="select_e_info" resultType="manage.entity.E_Info">
+ 		select * from e_info where remark='0'
+ 	</select>
+ 	<select id="select_other_e_info" parameterType="String" resultType="manage.entity.E_Info">
+ 		select * from e_info where teacher=#{teacher} and remark='0'
+ 	</select>
+ 	<update id="update_e_info_remark" parameterType="manage.entity.SelectE_info">
+ 		update e_info set remark='1' where cno=#{cno} and datetime=#{datetime}
+ 	</update>
+ 	 <select id="select_all_e_info" resultType="manage.entity.E_Info">
+ 		select * from e_info
+ 	</select>
+ 	<select id="select_e_info_by" parameterType="manage.entity.SelectE_info" resultType="manage.entity.E_Info">
+ 		select * from e_info where cno=#{cno} and datetime=#{datetime} and address=#{address}
+ 	</select>
+ 	<delete id="delete_all_e_info">
+ 		delete from e_info
+ 	</delete>
+</mapper>

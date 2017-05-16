@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="manage.dao.teacherDao">
+	<insert id="add_teacher" parameterType="manage.entity.Teacher">
+		insert into teacher(tno,tname,pwd,telephone,job,major,count,proy,college,remark,upload)
+		values(#{tno,jdbcType=VARCHAR},#{tname,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},
+		#{telephone,jdbcType=VARCHAR},#{job,jdbcType=VARCHAR},#{major,jdbcType=VARCHAR},
+		#{count,jdbcType=VARCHAR},#{proy,jdbcType=VARCHAR},#{college,jdbcType=VARCHAR},
+		#{remark,jdbcType=VARCHAR},#{upload,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="update_pwd"  parameterType="manage.vo.User">  
+		update teacher set pwd = #{pwd} where tno = #{tno}
+    </update>  
+	<update id="update_info"  parameterType="manage.entity.Teacher">  
+		update teacher set tname=#{tname},telephone=#{telephone},college=#{college},major=#{major},job=#{job} where tno = #{tno}
+    </update>  
+    <update id="update_upload"  parameterType="String">  
+		update teacher set upload='1' where tno=#{tno}
+    </update>  
+    <select id="select_upload" parameterType="String" resultType="String">
+    	select upload from teacher where tno=#{tno}  
+    </select>
+    <select id="select_arrange_teacher" parameterType="String" resultType="manage.entity.Teacher">
+    	select * from teacher where remark='0' and tno!=#{tno} order by count
+    </select>
+    <select id="select_remark" parameterType="String" resultType="String">
+    	select remark from teacher where tno=#{tno}
+    </select>
+    <select id="select_e_teacher" parameterType="String" resultType="manage.entity.Teacher">
+    	select * from teacher where tno=#{tno,jdbcType=VARCHAR}
+    </select>
+    <update id="update_count" parameterType="String">
+    	update teacher set count=count+1 where tno=#{tno}
+    </update>
+    
+    <update id="update_count_reduce" parameterType="String">
+    	update teacher set count=count-1 where tno=#{tno}
+    </update>
+    
+    <select id="select_all_teacher" resultType="manage.entity.Teacher">
+    	select * from teacher
+    </select>
+    <update id="update_count_zero">
+    	update teacher set count='0'
+    </update>
+    <update id="update_upload_zero">
+    	update teacher set upload='0'
+    </update>
+    <update id="update_teacher_info"  parameterType="manage.entity.Teacher">  
+		update teacher set telephone=#{telephone},proy=#{proy},count=#{count},remark=#{remark},upload=#{upload} where tno = #{tno}
+    </update>  
+    <delete id="delete_all_course_by_tno"  parameterType="String">
+    	delete from course where tno=#{tno}
+    </delete>
+    <delete id="del_Teacher" parameterType="manage.entity.Teacher">
+    	delete from teacher where tno=#{tno}
+    </delete>
+</mapper>

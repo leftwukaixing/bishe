@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="manage.dao.m_infoDao">  
+ 	<insert id="insert_m_info" parameterType="manage.entity.M_Info">
+ 		insert into m_info(teacher,cname,examType,M_number,week,timeStart,timeEnd,grade,address,
+ 		numberSeat,examST,courseType,courseXZ,timeLL,timeAll,numberChoose,argument,remark)
+ 		values
+ 		(#{teacher},#{cname},#{examType},#{M_number},#{week},#{timeStart},#{timeEnd},#{grade},#{address},
+ 		#{numberSeat},#{examST},#{courseType},#{courseXZ},#{timeLL},#{timeAll},#{numberChoose},
+ 		#{argument},#{remark})	
+ 	</insert>
+ 	<select id="select_m_info" resultType="manage.entity.M_Info">
+ 		select * from m_info where remark='0' and teacher is not null
+ 	</select>
+ 	<select id="select_other_m_info" parameterType="String" resultType="manage.entity.M_Info">
+ 		select * from m_info where teacher=#{teacher} and remark='0'
+ 	</select>
+ 	<update id="update_m_info_remark" parameterType="manage.entity.SelectM_info">
+ 		update m_info set remark='1' where cname=#{cname} and teacher=#{teacher}
+ 	</update>
+ 	 <select id="select_all_m_info" resultType="manage.entity.M_Info">
+ 		select * from m_info
+ 	</select>
+ 	<select id="select_m_info_by" parameterType="manage.entity.SelectM_info" resultType="manage.entity.M_Info">
+ 		select * from m_info where cname=#{cname,jdbcType=VARCHAR} and teacher=#{teacher,jdbcType=VARCHAR} and timeStart=#{timeStart,jdbcType=VARCHAR}
+ 	</select>
+ 	<delete id="delete_all_m_info">
+ 		delete from m_info
+ 	</delete>
+</mapper>

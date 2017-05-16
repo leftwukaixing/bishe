@@ -179,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="profile_img">	
 										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>管理员</span></p>
+											<p>吴开星<span>学生</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>

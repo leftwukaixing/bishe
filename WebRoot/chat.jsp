@@ -179,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="profile_img">	
 										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>管理员</span></p>
+											<p>吴开星<span>学生</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -210,7 +210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-xs-3 activity-img"><img src='images/1.png' class="img-responsive" alt=""/><span>10:00 PM</span></div>
 							<div class="col-xs-5 activity-img1">
 								<div class="activity-desc-sub">
-									<h5>John Smith</h5>
+									<h5>张三</h5>
 									<p>Hello !</p>
 								</div>
 							</div>
@@ -221,19 +221,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-xs-2 activity-desc1"></div>
 							<div class="col-xs-7 activity-img2">
 								<div class="activity-desc-sub1">
-									<h5>Adom Smith</h5>
-									<p>Hi,How are you ? What about our next meeting?</p>
+									<h5>吴开星</h5>
+									<p>Hi！</p>
 								</div>
 							</div>
-							<div class="col-xs-3 activity-img"><img src='images/3.png' class="img-responsive" alt=""/><span>10:02 PM</span></div>
+							<div class="col-xs-3 activity-img"><img src='images/kaixing.png' class="img-responsive" alt=""/><span>10:02 PM</span></div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="activity-row activity-row1">
 							<div class="col-xs-3 activity-img"><img src='images/1.png' class="img-responsive" alt=""/><span>10:00 PM</span></div>
 							<div class="col-xs-5 activity-img1">
 								<div class="activity-desc-sub">
-									<h5>John Smith</h5>
-									<p>Yeah fine</p>
+									<h5>李四</h5>
+									<p>今天天气真好，适合出去玩耍!</p>
 								</div>
 							</div>
 							<div class="col-xs-4 activity-desc1"></div>
@@ -243,11 +243,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-xs-2 activity-desc1"></div>
 							<div class="col-xs-7 activity-img2">
 								<div class="activity-desc-sub1">
-									<h5>Adom Smith</h5>
-									<p>Wow that's great</p>
+									<h5>吴开星</h5>
+									<p>对呀，我们去逛植物园呀！</p>
 								</div>
 							</div>
-							<div class="col-xs-3 activity-img"><img src='images/3.png' class="img-responsive" alt=""/><span>10:02 PM</span></div>
+							<div class="col-xs-3 activity-img"><img src='images/kaixing.png' class="img-responsive" alt=""/><span>10:02 PM</span></div>
 							<div class="clearfix"> </div>
 						</div>
 					</div>

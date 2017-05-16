@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE struts PUBLIC   
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+    "http://struts.apache.org/dtds/struts-2.0.dtd">   
+<struts>   
+    <constant name="struts.i18n.encoding" value="UTF-8"/>  
+            <!-- 指定默认编码集 ，作用于HttpServletRequest的setCharacterEncoding（）和freemarker，vilocity的输出 -->  
+    <constant name="struts.configuration.xmlreload" value="true"/>  
+            <!-- 当struts配置文件修改时是否自动加载 -->  
+    <constant name="struts.devMode" value="true"/>  
+            <!-- 开发模式下打印详细的错误信息 -->  
+    <constant name="struts.ui.theme" value="xhtml"/> 
+	<!-- 
+    <package name="teacher" namespace="/teacher" extends="struts-default"> 
+    	<action name="showPage">  
+            <result name="success">/index.jsp</result>  
+        </action>
+        <action name="teacherAction" class="manage.action.teacherAction" >
+        	<result name="success">/show.jsp</result>
+        </action>    
+    </package> 
+     -->
+
+	<package name="exam" namespace="/exam" extends="struts-default"> 
+    	<action name="uploadExam">  
+            <result name="success">/WEB-INF/arrageJK/uploadExamSheet.jsp</result>  
+        </action>
+    </package> 
+    <package name="uploadExam" namespace="/uploadExam" extends="struts-default"> 
+    	<action name="upload" class="manage.action.examAction">  
+            <result name="success">/WEB-INF/arrageJK/information.jsp</result>  
+        </action>
+    </package> 
+    
+</struts>  
+
