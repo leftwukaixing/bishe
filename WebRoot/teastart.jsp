@@ -75,8 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="chat.jsp">我的讨论</a> </li>
 							</ul>
 						</li>      
-						<li><a href="codes.jsp"><i class="lnr lnr-pencil"></i> <span>我的笔记</span></a></li>
-						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
+						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
 								<li><a href="login.jsp">登录</a> </li>
@@ -177,9 +176,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
+										<span style="background:url(images/3.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>管理员</span></p>
+											<p>张三丰<span>太极宗师</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -202,61 +201,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //header-ends -->
 			<div id="page-wrapper">
 				<div class="graphs">
-		<!-- //switches -->
-		<div class="col_1">
-		
-			<div class="col-md-9 span_9">
-				<video id="my-player" class="video-js" controls preload="auto" poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'>
-				<source src="media/test.mp4" type="video/mp4"></source>
-				</video>
-			</div>
-
-			<script type="text/javascript">
-			//打开自动播放
-    		var myPlayer = videojs('my-player');
-    		videojs("my-player").ready(function(){
-        		var myPlayer = this;
-        		myPlayer.play();
-    		});
-			</script>		
-		
-			<div class="col-md-3 span_7">
-				<div class="activity_box activity_box2">
-					<h3>todo</h3>
-					<div class="scrollbar" id="style-2">
-						<div class="activity-row activity-row1">
-							<div class="single-bottom">
-								<ul>
-									<li>
-										<input type="checkbox"  id="brand9" value="">
-										<label for="brand9"><span></span> 绪论 </label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand8" value="">
-										<label for="brand8"><span></span> 一：变量类型</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand7" value="">
-										<label for="brand7"><span></span> 二：类</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand3" value="">
-										<label for="brand3"><span></span> 三：接口</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand4" value="">
-										<label for="brand4"><span></span> 四：继承和多态</label>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
+					<img src="images/2.jpg"/>
 				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-				</div>
-			<!--body wrapper start-->
 			</div>
 			 <!--body wrapper end-->
 		</div>
