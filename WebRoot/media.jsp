@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>个人信息查看</title>
+<title>视频上传</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -72,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="chat.jsp">我的讨论</a> </li>
 							</ul>
 						</li>      
-						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
+						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
 								<li><a href="login.jsp">登录</a> </li>
@@ -171,9 +171,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
+										<span style="background:url(images/3.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>学生</span></p>
+											<p>张三丰<span>太极宗师</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -196,41 +196,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div id="page-wrapper" class="sign-in-wrapper">
 				<div class="graphs">
 					<div class="sign-up">
-						<h3>个人信息</h3>
+						<h3>视频上传</h3>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>学号 :</h4>
+								<input type="button" class="btn btn-info" value="选择文件">
 							</div>
 							<div class="sign-up2">
 								<form>
-									<input type="text" value="20134365" readonly="readonly"/>
+									<input type="text" />
 								</form>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>姓名:</h4>
+								<h4>知识点名称:</h4>
 							</div>
 							<div class="sign-up2">
 								<form>
-									<input type="text" value="吴开星" readonly="readonly"/>
+									<input type="text" />
 								</form>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>班级 :</h4>
+								<h4>详细描述:</h4>
 							</div>
 							<div class="sign-up2">
 								<form>
-									<input type="text" value="计算机科学与技术2013-05" readonly="readonly"/>
+									<textarea class="form-control" rows="3"></textarea>
 								</form>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sub_home">
+							<div class="sub_home_left">
+								<form>
+									<input type="submit" value="确认上传">
+								</form>
+							</div>
 							<div class="sub_home_right">
 								<p>返回<a href="index.jsp">首页</a></p>
 							</div>

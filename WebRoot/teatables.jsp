@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>个人信息查看</title>
+<title>知识点列表</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -39,9 +39,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head> 
    
- <body class="sign-in-up sticky-header left-side-collapsed">
+ <body class="sticky-header left-side-collapsed"  onload="initMap()">
     <section>
-    	    <!-- left side start-->
+    <!-- left side start-->
 		<div class="left-side sticky-left-side">
 
 			<!--logo and iconic logo start-->
@@ -71,8 +71,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<ul class="sub-menu-list">
 								<li><a href="chat.jsp">我的讨论</a> </li>
 							</ul>
-						</li>      
-						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
+						</li>
+						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
 								<li><a href="login.jsp">登录</a> </li>
@@ -84,8 +84,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!--sidebar nav end-->
 			</div>
 		</div>
-		<!-- left side end-->
-		<div class="main-content">
+    <!-- left side end-->
+    
+    <!-- main content start-->
+		<div class="main-content main-content4">
 			<!-- header-starts -->
 			<div class="header-section">
 			 
@@ -171,9 +173,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
+										<span style="background:url(images/3.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>学生</span></p>
+											<p>张三丰<span>太极宗师</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -193,49 +195,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--notification menu end -->
            
 			</div>
-			<div id="page-wrapper" class="sign-in-wrapper">
+	<!-- //header-ends -->
+			<div id="page-wrapper">
 				<div class="graphs">
-					<div class="sign-up">
-						<h3>个人信息</h3>
-						<div class="sign-u">
-							<div class="sign-up1">
-								<h4>学号 :</h4>
-							</div>
-							<div class="sign-up2">
-								<form>
-									<input type="text" value="20134365" readonly="readonly"/>
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="sign-u">
-							<div class="sign-up1">
-								<h4>姓名:</h4>
-							</div>
-							<div class="sign-up2">
-								<form>
-									<input type="text" value="吴开星" readonly="readonly"/>
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="sign-u">
-							<div class="sign-up1">
-								<h4>班级 :</h4>
-							</div>
-							<div class="sign-up2">
-								<form>
-									<input type="text" value="计算机科学与技术2013-05" readonly="readonly"/>
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="sub_home">
-							<div class="sub_home_right">
-								<p>返回<a href="index.jsp">首页</a></p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
+					<h3 class="blank1">知识点列表</h3>
+					 <div class="xs tabls">
+						<div class="bs-example4" data-example-id="contextual-table">
+						<table class="table">
+						  <thead>
+							<tr>
+							  <th>ID</th>
+							  <th>知识点名称</th>
+							  <th>详细描述</th>
+							  <th>观看比例</th>
+							</tr>
+						  </thead>
+						  <tbody>
+							<tr class="success">
+							  <th scope="row">1</th>
+							  <td>第一章、绪论</td>
+							  <td>发展史</td>
+							  <td>52/52</td>
+							</tr>
+							<tr class="success">
+							  <th scope="row">3</th>
+							  <td>第二章、基本类型</td>
+							  <td>Java语言的结伴数据类型，定义方式</td>
+							  <td>52/52</td>
+							</tr>
+							<tr class="danger">
+							  <th scope="row">2</th>
+							  <td>第三章、类</td>
+							  <td>类的定义，使用，例子</td>
+							  <td>30/52</td>
+							</tr>
+							<tr>
+							  <th scope="row">4</th>
+							  <td>第四章、接口</td>
+							  <td>系统自定义接口，接口定义方式，使用场景，功能特性</td>
+							  <td>0/52</td>
+							</tr>
+							<tr>
+							  <th scope="row">5</th>
+							  <td>第五章、继承和多态</td>
+							  <td>继承的方式，特点，实现</td>
+							  <td>0/52</td>
+							</tr>
+						  </tbody>
+						</table>
+					   </div>
 					</div>
 				</div>
 			</div>
