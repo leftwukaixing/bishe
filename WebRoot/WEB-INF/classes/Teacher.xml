@@ -39,13 +39,6 @@
         		/WEB-INF/changeInfo/information.jsp
         	</result>
         </action>
-        
-        <action name="del_Teacher" class="manage.action.teacherAction">
-        	<result name="success">
-        		/WEB-INF/changeInfo/information.jsp
-        	</result>
-        </action>
-        
         <action name="submit_info" class="manage.action.teacherAction" >
         	<result name="success">
       			/WEB-INF/changeInfo/information.jsp

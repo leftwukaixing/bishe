@@ -3,10 +3,9 @@ package manage.action;
 import javax.servlet.http.HttpServletRequest;
 
 import manage.entity.Teacher;
+import manage.entity.UserD;
 import manage.service.teacherService;
-import manage.vo.User;
 
-import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Controller
 @Scope("prototype")
 public class teacherAction extends ActionSupport{
-	private User user;
+	private UserD user;
 	private Teacher t;
 	private HttpServletRequest request;
 	@Autowired
@@ -38,25 +37,6 @@ public class teacherAction extends ActionSupport{
 		}
 		return SUCCESS;
 	}
-	
-	/**
-	 * 删除教师
-	 * @return
-	 */
-	public String del_Teacher(){
-		request = ServletActionContext.getRequest();
-		String tno = request.getParameter("tno");
-//		System.out.println(tno);
-		try{
-			service.del_Teacher(tno);
-			update_pwd_msg = "删除成功";
-		}catch(Exception e){
-			e.printStackTrace();
-			update_pwd_msg = "删除失败";
-		}
-		return SUCCESS;
-	}
-	
 	/**
 	 * 修改密码
 	 * @return
@@ -94,10 +74,10 @@ public class teacherAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	public User getUser() {
+	public UserD getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserD user) {
 		this.user = user;
 	}
 

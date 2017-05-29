@@ -1,22 +1,23 @@
 package manage.vo;
 
 public class User {
-	private String tno;
-	private String pwd;
-	public String getTno() {
-		return tno;
+	private String uid;
+	private String password;
+	public String getUid() {
+		return uid;
 	}
-	public void setTno(String tno) {
-		this.tno = tno;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public String toString() {
-		return "User [pwd=" + pwd + ", tno=" + tno + "]";
+		return "User [password=" + password + ", uid=" + uid + "]";
 	}
+	
 }

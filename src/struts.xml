@@ -10,33 +10,9 @@
     <constant name="struts.devMode" value="true"/>  
             <!-- 开发模式下打印详细的错误信息 -->  
     <constant name="struts.ui.theme" value="xhtml"/> 
-	<!-- 
-    <package name="teacher" namespace="/teacher" extends="struts-default"> 
-    	<action name="showPage">  
-            <result name="success">/index.jsp</result>  
-        </action>
-        <action name="teacherAction" class="manage.action.teacherAction" >
-        	<result name="success">/show.jsp</result>
-        </action>    
-    </package> 
-     -->
     <!--登陆管理 -->
 	<include file="Login.xml" />
 	<!--用户管理 -->
 	<include file="Teacher.xml" />
-	<!--课程管理 -->
-	<include file="Course.xml" />
-	<!--考试信息管理 -->
-	<include file="E_info.xml" />
-	<!--监考管理 -->
-	<include file="E_manage.xml" />
-	<!-- 信息管理 -->
-    <include file="Message.xml" />
-    <!-- 其他管理 -->
-    <include file="Other.xml" />
-    <!-- 教学日历管理 -->
-    <include file="Calendar.xml" />
-    <!-- 考试成绩管理 -->
-    <include file="Exam.xml" />
 </struts>  
 

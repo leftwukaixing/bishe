@@ -1,7 +1,7 @@
 package manage.dao;
 
-import manage.entity.Teacher;
+import manage.entity.UserD;
 
 public interface loginDao {
-	public Teacher select_teacher(String tno);	
+	public UserD select_user(String uid);	
 }
