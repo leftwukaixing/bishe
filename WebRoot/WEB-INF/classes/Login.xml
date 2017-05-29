@@ -13,23 +13,13 @@
     <constant name="struts.devMode" value="true"/>  
             <!-- 开发模式下打印详细的错误信息 -->  
     <constant name="struts.ui.theme" value="xhtml"/> 
-	<!-- 
-    <package name="teacher" namespace="/teacher" extends="struts-default"> 
-    	<action name="showPage">  
-            <result name="success">/index.jsp</result>  
-        </action>
-        <action name="teacherAction" class="manage.action.teacherAction" >
-        	<result name="success">/show.jsp</result>
-        </action>    
-    </package> 
-     -->
 	<package name="login" namespace="/" extends="struts-default"> 
     	<action name="index">  
             <result name="success">/login.jsp</result>  
         </action>
         <action name="loginAction" class="manage.action.loginAction">
-        	<result name="success">/WEB-INF/teastart.jsp</result>
-        	<result name="success1">/WEB-INF/stustart.jsp</result>
+        	<result name="success">/teastart.jsp</result>
+        	<result name="success1">/stustart.jsp</result>
         	<result name="error">/login.jsp</result>
         </action>
     </package>

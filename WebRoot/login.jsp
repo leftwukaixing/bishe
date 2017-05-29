@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="signin">
 							<div class="signin-rit">
 								<span class="checkbox1">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked="">忘记密码 ?</label>
+									 <label class="checkbox"><input type="checkbox" name="checkbox" >忘记密码 ?</label>
 								</span>
 								<p><a href="#">找回密码</a> </p>
 								<div class="clearfix"> </div>
@@ -61,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								   <input type="text" class="user" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
 								</div>
 								<span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
+									 <label class="checkbox"><input type="checkbox" name="checkbox" ><i> </i></label>
 								</span>
 								<div class="clearfix"> </div>
 							</div>

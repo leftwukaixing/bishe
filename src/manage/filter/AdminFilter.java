@@ -33,7 +33,7 @@ public class AdminFilter implements Filter{
 
 		String path = req.getRequestURI();
 		String context = req.getContextPath();
-		Teacher teacher = (Teacher) session.getAttribute("teacher");
+		Teacher teacher = (Teacher) session.getAttribute("user");
 		if(teacher!=null|| list.contains(path) || path.endsWith("js")
 				|| path.endsWith("css") || path.endsWith("jpg")
 				|| path.endsWith("png") || path.endsWith("gif")){
@@ -49,8 +49,8 @@ public class AdminFilter implements Filter{
 	
 	public void init(FilterConfig arg0) throws ServletException {
 		// 初始化默认访问页面
-		list.add("/jkmanage/index.action");
-		list.add("/jkmanage/loginAction!selectTeacher");
+		list.add("/bishe/index.action");
+		list.add("/bishe/loginAction!selectUser");
 	}
 
 }
