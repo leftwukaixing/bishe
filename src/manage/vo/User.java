@@ -1,23 +1,22 @@
 package manage.vo;
 
 public class User {
-	private String uid;
+	private String userid;
 	private String password;
-	public String getUid() {
-		return uid;
-	}
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 	@Override
 	public String toString() {
-		return "User [password=" + password + ", uid=" + uid + "]";
+		return "User [password=" + password + ", userid=" + userid + "]";
 	}
-	
 }

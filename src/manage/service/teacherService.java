@@ -38,7 +38,7 @@ public class teacherService {
 			//session中的密码也要改过来
 			Map<String, Object> session = ActionContext.getContext().getSession();
 			Teacher teacher = (Teacher)session.get("teacher");
-			user.setPassword(user.getPassword());
+			user.setPwd(user.getPwd());
 			session.remove("teacher");
 			session.put("teacher", teacher);
 		}

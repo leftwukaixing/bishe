@@ -4,40 +4,39 @@ import java.io.Serializable;
 
 public class UserD implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private String uid;
-	private String password;
-	private String proy;
-	public String getUid() {
-		return uid;
-	}
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public void setProy(String proy) {
-		this.proy = proy;
-	}
-	public String getProy() {
-		return proy;
-	}
-	public UserD(String uid, String password, String proy) {
-		super();
-		this.uid = uid;
-		this.password = password;
-		this.proy = proy;
-	}
+	private String userid;
+	private String pwd;
+	private String proxy;
 	public UserD() {
 		super();
 	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getProxy() {
+		return proxy;
+	}
+	public void setProxy(String proxy) {
+		this.proxy = proxy;
+	}
+	public UserD(String userid, String pwd, String proxy) {
+		super();
+		this.userid = userid;
+		this.pwd = pwd;
+		this.proxy = proxy;
+	}
 	@Override
 	public String toString() {
-		return "User [password=" + password + ", proy=" + proy + ", uid=" + uid
+		return "UserD [proxy=" + proxy + ", pwd=" + pwd + ", userid=" + userid
 				+ "]";
 	}
-	
 }

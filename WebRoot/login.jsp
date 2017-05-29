@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<form action="<%=basePath %>loginAction!selectUser" method="post">
 							<div class="log-input">
 								<div class="log-input-left">
-								   <input type="text" class="user" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
+								   <input type="text" class="user" name="user.userid" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
 								</div>
 								<span class="checkbox2">
 									 <label class="checkbox"><input type="checkbox" name="checkbox" ><i> </i></label>
@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="log-input">
 								<div class="log-input-left">
-								   <input type="password" class="lock" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
+								   <input type="password" class="lock" name="user.password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
 								</div>
 								<span class="checkbox2">
 									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>

@@ -15,6 +15,6 @@ public class loginService {
 	@Autowired
 	private loginDao dao;
 	public UserD select_user(User u){
-		return dao.select_user(u.getUid());
+		return dao.select_user(u.getUserid());
 	}
 }

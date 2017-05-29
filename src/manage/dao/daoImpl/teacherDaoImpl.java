@@ -13,19 +13,6 @@ public class teacherDaoImpl implements teacherDao{
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 
-	public void update_pwd(UserD user) {
-		sqlSessionTemplate.update("update_pwd", user);
-	}
-
-	public void update_info(Teacher teacher) {
-		sqlSessionTemplate.update("update_info", teacher);
-	}
-
-	public void addTeacher(Teacher teacher) {
-		// TODO Auto-generated method stub
-		sqlSessionTemplate.insert("add_teacher", teacher);
-	}
-
 	public Teacher select_Teacher(String tno) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("select_Teacher", tno);

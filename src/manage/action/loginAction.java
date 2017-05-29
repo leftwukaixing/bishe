@@ -40,26 +40,27 @@ public class loginAction extends ActionSupport{
 	private Map<String, Object> session;
 
 	public String selectUser(){
-		System.out.println("----hahaha-----");
-			userd = service.select_user(user);
-			if(userd!=null && userd.getPassword().equals(user.getPassword())){
-				//登陆成功 ，将用户信息保存至session中
-				session =  ActionContext.getContext().getSession();
-				if(userd.getProy().equals("1")){
-					proy_info = "教师用户";
-					teacher = tservice.select_Teacher(userd.getUid());
-					session.put("user", teacher);
-					return SUCCESS;
-				}else if(userd.getProy().equals("0")){
-					proy_info = "学生用户";
-					student = sservice.select_Student(userd.getUid());
-					session.put("user", student);
-				}
-				return "success1";
-			}else{
-				error_msg = "用户名或密码错误！";
-				return ERROR;
-			}	
+		System.out.println("----hahaha-----"+user.toString());
+		userd = service.select_user(user);
+		System.out.println("---------"+userd.toString());
+		if(userd!=null && userd.getPwd().equals(user.getPassword())){
+			//登陆成功 ，将用户信息保存至session中
+			session =  ActionContext.getContext().getSession();
+			if(userd.getProxy().equals("1")){
+				proy_info = "教师用户";
+				teacher = tservice.select_Teacher(userd.getUserid());
+				session.put("user", teacher);
+				return SUCCESS;
+			}else if(userd.getProxy().equals("0")){
+				proy_info = "学生用户";
+				student = sservice.select_Student(userd.getUserid());
+				session.put("user", student);
+			}
+			return "success1";
+		}else{
+			error_msg = "用户名或密码错误！";
+			return ERROR;
+		}	
 	}
 	public User getUser() {
 		return user;
