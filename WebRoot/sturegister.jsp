@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>注册</title>
+<title>学生注册</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -33,9 +33,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
-<!----webfonts--->
-<link href='http://fonts.useso.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-<!---//webfonts---> 
  <!-- Meters graphs -->
 <script src="js/jquery-1.10.2.min.js"></script>
 <!-- Placed js at the end of the document so the pages load faster -->
@@ -49,15 +46,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="sign-up">
 						<h3>学生注册</h3>
 						<p class="creating">注册到Java语言翻转课堂教学模式系统，即可开启你全新的学习体验或教学方式，快快加入吧！</p>
+						<form action="<%=basePath %>addStudent!addStudent" method="post">
 						<h5>个人信息</h5>
 						<div class="sign-u">
 							<div class="sign-up1">
 								<h4>学号* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" placeholder=" " required=" "/>
-								</form>
+								<input type="text" placeholder="学生学号" name="student.sno"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -66,9 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>姓名* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" placeholder=" " required=" "/>
-								</form>
+								<input type="text" placeholder="学生姓名" name="student.sname"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -77,9 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>班级* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" placeholder=" " required=" "/>
-								</form>
+								<input type="text" placeholder="班级信息" name="student.sclass"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -89,9 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>密  码* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="password" placeholder=" " required=" "/>
-								</form>
+								<input type="password" placeholder="登录密码" name="user.password"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -100,23 +90,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>确认密码* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="password" placeholder=" " required=" "/>
-								</form>
+								<input type="password" placeholder="确认密码"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sub_home">
 							<div class="sub_home_left">
-								<form>
-									<input type="submit" value="确认提交">
-								</form>
+								<input type="submit" value="确认提交">
 							</div>
 							<div class="sub_home_right">
-								<p>返回<a href="index.jsp">首页</a></p>
+								<p>返回<a href="login.jsp">登录页</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>

@@ -1,13 +1,15 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>修改信息</title>
+<title>修改学生信息</title>
+<base href=" <%=basePath%>"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -33,9 +35,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
-<!----webfonts--->
-<link href='http://fonts.useso.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-<!---//webfonts---> 
  <!-- Meters graphs -->
 <script src="js/jquery-1.10.2.min.js"></script>
 <!-- Placed js at the end of the document so the pages load faster -->
@@ -49,10 +48,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<!--logo and iconic logo start-->
 			<div class="logo">
-				<h1><a href="index.jsp">翻转<span>课堂</span></a></h1>
+				<h1><a href="stustart.jsp">翻转<span>课堂</span></a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="index.jsp"><i class="lnr lnr-home"></i> </a>
+				<a href="stustart.jsp"><i class="lnr lnr-home"></i> </a>
 			</div>
 
 			<!--logo and iconic logo end-->
@@ -65,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>设置</span></a>
 								<ul class="sub-menu-list">
-									<li><a href="setinfo.jsp">个人信息设置</a> </li>
+									<li><a href="student/setInfo.action">个人信息设置</a> </li>
 									<li><a href="setpw.jsp">密码修改</a></li>
 								</ul>
 						</li>
@@ -175,9 +174,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>学生</span></p>
+											<p><s:property value="#session.user.sname"/><span>学生</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -200,15 +198,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div id="page-wrapper" class="sign-in-wrapper">
 				<div class="graphs">
 					<div class="sign-up">
+						<form action="student/updateStudent!updateStudent" method="post">
 						<h3>学生信息设置</h3>
 						<div class="sign-u">
 							<div class="sign-up1">
 								<h4>学号* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" value="20134365" readonly="readonly">
-								</form>
+								<input type="text" value="<s:property value="#session.user.sno"/>" name="student.sno" readonly="readonly">
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -217,9 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>姓名* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" value="吴开星"/>
-								</form>
+								<input type="text" value="<s:property value="#session.user.sname"/>" name="student.sname" />
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -228,23 +223,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>班级* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" value="计算机科学与技术2013-05"/>
-								</form>
+								<input type="text" value="<s:property value="#session.user.sclass"/>" name="student.sclass" />
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sub_home">
 							<div class="sub_home_left">
-								<form>
-									<input type="submit" value="确认修改">
-								</form>
+								<input type="submit" value="确认修改">
 							</div>
 							<div class="sub_home_right">
-								<p>返回<a href="index.jsp">首页</a></p>
+								<p>返回<a href="stustart.jsp">首页</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>

@@ -1,9 +1,10 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -54,6 +55,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</span>
 								<p><a href="#">找回密码</a> </p>
 								<div class="clearfix"> </div>
+							</div>
+							<div>
+								<h3><span class="label label-danger"><s:property value="error_msg"/></span></h3>
 							</div>
 							<form action="<%=basePath %>loginAction!selectUser" method="post">
 							<div class="log-input">

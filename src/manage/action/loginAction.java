@@ -20,8 +20,11 @@ public class loginAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	@Autowired
 	private loginService service;
+	@Autowired
 	private teacherService tservice;
+	@Autowired
 	private studentService sservice;
+	
 	private User user;
 	private UserD userd;
 	private Teacher teacher;
@@ -31,37 +34,39 @@ public class loginAction extends ActionSupport{
 	 */
 	private String error_msg;
 	/**
-	 * 教师权限信息，必须写get/set方法
-	 */
-	private String proy_info;
-	/**
 	 * session为Map类型，此值存储session
 	 */
 	private Map<String, Object> session;
-
+	
+	/**
+	 * 用户登录
+	 * @return
+	 */
 	public String selectUser(){
-		System.out.println("----hahaha-----"+user.toString());
 		userd = service.select_user(user);
-		System.out.println("---------"+userd.toString());
 		if(userd!=null && userd.getPwd().equals(user.getPassword())){
 			//登陆成功 ，将用户信息保存至session中
 			session =  ActionContext.getContext().getSession();
 			if(userd.getProxy().equals("1")){
-				proy_info = "教师用户";
 				teacher = tservice.select_Teacher(userd.getUserid());
 				session.put("user", teacher);
 				return SUCCESS;
 			}else if(userd.getProxy().equals("0")){
-				proy_info = "学生用户";
 				student = sservice.select_Student(userd.getUserid());
 				session.put("user", student);
 			}
 			return "success1";
 		}else{
-			error_msg = "用户名或密码错误！";
+			error_msg = "对不起！用户名或密码错误，请重新输入。";
 			return ERROR;
 		}	
 	}
+	
+	public String updatePW(){
+		System.out.println(user.toString());
+		return SUCCESS;
+	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -73,12 +78,5 @@ public class loginAction extends ActionSupport{
 	}
 	public void setError_msg(String error_msg) {
 		this.error_msg = error_msg;
-	}
-
-	public String getProy_info() {
-		return proy_info;
-	}
-	public void setProy_info(String proy_info) {
-		this.proy_info = proy_info;
 	}
 }

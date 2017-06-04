@@ -33,8 +33,8 @@ public class AdminFilter implements Filter{
 
 		String path = req.getRequestURI();
 		String context = req.getContextPath();
-		Teacher teacher = (Teacher) session.getAttribute("user");
-		if(teacher!=null|| list.contains(path) || path.endsWith("js")
+		Object user = session.getAttribute("user");
+		if(user!=null || list.contains(path) || path.endsWith("js")
 				|| path.endsWith("css") || path.endsWith("jpg")
 				|| path.endsWith("png") || path.endsWith("gif")){
 			// 放行
@@ -42,7 +42,7 @@ public class AdminFilter implements Filter{
 			//System.out.println("放行");
 		}else{
 			res.sendRedirect(context + "/index.action");
-			//System.out.println("不放行");
+			System.out.println(path+"---不放行");
 		}
 	}
 
@@ -50,6 +50,10 @@ public class AdminFilter implements Filter{
 	public void init(FilterConfig arg0) throws ServletException {
 		// 初始化默认访问页面
 		list.add("/bishe/index.action");
+		list.add("/bishe/tearegister.jsp");
+		list.add("/bishe/sturegister.jsp");
+		list.add("/bishe/addTeacher!addTeacher");
+		list.add("/bishe/addStudent!addStudent");
 		list.add("/bishe/loginAction!selectUser");
 	}
 

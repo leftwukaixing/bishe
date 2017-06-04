@@ -14,5 +14,7 @@
 	<include file="Login.xml" />
 	<!--用户管理 -->
 	<include file="Teacher.xml" />
+	<!--学生管理-->
+	<include file="Student.xml" />
 </struts>  
 

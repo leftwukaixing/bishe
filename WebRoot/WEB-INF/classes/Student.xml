@@ -10,11 +10,20 @@
     <constant name="struts.devMode" value="true"/>  
             <!-- 开发模式下打印详细的错误信息 -->  
     <constant name="struts.ui.theme" value="xhtml"/> 
-    <!--登陆管理 -->
-	<include file="Login.xml" />
-	<!--用户管理 -->
-	<include file="Teacher.xml" />
-	<!--学生管理-->
-	<include file="Student.xml" />
+	<package name="student" namespace="/student" extends="struts-default"> 
+    	<action name="showInfo">  
+            <result name="success">/showstuinfo.jsp</result>  
+        </action>
+        <action name="setInfo">
+        	<result name="success">/setstuinfo.jsp</result>
+        </action>
+        <action name="setpw">
+        	<result name="success">/setpw.jsp</result>
+        </action>
+        <action name="updateStudent" class="manage.action.studentAction">
+        	<result name="success">/showstuinfo.jsp</result>
+        	<result name="error">/setstuinfo.jsp</result>
+        </action>
+    </package>
 </struts>  
 

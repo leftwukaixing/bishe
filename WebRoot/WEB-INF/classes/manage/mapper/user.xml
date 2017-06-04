@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="manage.dao.userDao"> 
+	<insert id="add_User" parameterType="manage.entity.UserD">
+		insert into users(userid,pwd,proxy) values(#{userid},#{pwd},#{proxy})
+	</insert>
+	<update id="update_Pwd" parameterType="manage.entity.UserD">
+		update users set pwd=#{pwd} where userid=#{userid}
+	</update>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="manage.dao.studentDao"> 
+    <select id="select_Student" parameterType="String" resultType="manage.entity.Student">
+    	select * from students where sno=#{sno}
+    </select>
+    <insert id="add_Student" parameterType="manage.entity.Student">
+    	insert into students(sno,sname,sclass) values(#{sno},#{sname},#{sclass})
+    </insert>
+    <update id="update_Student" parameterType="manage.entity.Student">
+    	update students set sname=#{sname},sclass=#{sclass} where sno=#{sno}
+    </update>
+</mapper>

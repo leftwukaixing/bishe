@@ -3,6 +3,12 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="manage.dao.teacherDao"> 
     <select id="select_Teacher" parameterType="String" resultType="manage.entity.Teacher">
-    	select * from teachers where tno=#{tno,jdbcType=VARCHAR}
+    	select * from teachers where tno=#{tno}
     </select>
+    <insert id="add_Teacher" parameterType="manage.entity.Teacher">
+    	insert into teachers(tno,tname,trank) values(#{tno},#{tname},#{trank})
+    </insert>
+    <update id="update_Teacher" parameterType="manage.entity.Teacher">
+    	update teachers set tname=#{tname},trank=#{trank} where tno=#{tno}
+    </update>
 </mapper>

@@ -1,13 +1,16 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>主页</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>个人信息查看</title>
+<base href=" <%=basePath%>"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -22,29 +25,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- lined-icons -->
 <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
-<!-- chart -->
-<script src="js/Chart.js"></script>
-<!-- //chart -->
 <!--animate-->
 <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
 <script src="js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
-
-<link href="css/video-js.min.css" rel="stylesheet">
-<script src="js/video.min.js"></script>	
-	
 <!--//end-animate-->
  <!-- Meters graphs -->
 <script src="js/jquery-1.10.2.min.js"></script>
-<!-- Placed js at the end of the document so the pages load faster -->
-
-</head> 
+<script type="text/javascript">
+ $(document).ready(function() {    
+         window.setTimeout(function(){
+        	 if(<%=session.getAttribute("user")==null%>){
+        		 location.href="login.jsp";      
+        	 }       
+         }, 1000);     
+ }); 
+ </script>
+ </head> 
    
- <body class="sticky-header left-side-collapsed">
+ <body class="sign-in-up sticky-header left-side-collapsed">
     <section>
-    <!-- left side start-->
+    	    <!-- left side start-->
 		<div class="left-side sticky-left-side">
 
 			<!--logo and iconic logo start-->
@@ -65,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>设置</span></a>
 								<ul class="sub-menu-list">
-									<li><a href="setinfo.jsp">个人信息设置</a> </li>
+									<li><a href="student/setInfo.action">个人信息设置</a> </li>
 									<li><a href="setpw.jsp">密码修改</a></li>
 								</ul>
 						</li>
@@ -75,7 +78,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="chat.jsp">我的讨论</a> </li>
 							</ul>
 						</li>      
-						<li><a href="codes.jsp"><i class="lnr lnr-pencil"></i> <span>我的笔记</span></a></li>
 						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
@@ -89,8 +91,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!-- left side end-->
-    
-		<!-- main content start-->
 		<div class="main-content">
 			<!-- header-starts -->
 			<div class="header-section">
@@ -114,8 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
-											   <div class="notification_desc">
+											  <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
 												</div>
@@ -155,8 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/1.png" alt=""></div>
-										   <div class="notification_desc">
+											<div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
 											</div>
@@ -177,9 +175,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>学生</span></p>
+											<p><s:property value="#session.user.sname"/><span>学生</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -187,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>	
 								</a>
 								<ul class="dropdown-menu drp-mnu">
-									<li> <a href="showinfo.jsp"><i class="fa fa-user"></i>个人信息查看</a> </li> 
+									<li> <a href="student/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
 									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
@@ -199,77 +196,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--notification menu end -->
            
 			</div>
-		<!-- //header-ends -->
-			<div id="page-wrapper">
+			<div id="page-wrapper" class="sign-in-wrapper">
 				<div class="graphs">
-		<!-- //switches -->
-		<div class="col_1">
-		
-			<div class="col-md-9 span_9">
-				<video id="my-player" class="video-js" controls preload="auto" poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'>
-				<source src="media/test.mp4" type="video/mp4"></source>
-				</video>
-			</div>
-
-			<script type="text/javascript">
-			//打开自动播放
-    		var myPlayer = videojs('my-player');
-    		videojs("my-player").ready(function(){
-        		var myPlayer = this;
-        		myPlayer.play();
-    		});
-			</script>		
-		
-			<div class="col-md-3 span_7">
-				<div class="activity_box activity_box2">
-					<h3>todo</h3>
-					<div class="scrollbar" id="style-2">
-						<div class="activity-row activity-row1">
-							<div class="single-bottom">
-								<ul>
-									<li>
-										<input type="checkbox"  id="brand9" value="">
-										<label for="brand9"><span></span> 绪论 </label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand8" value="">
-										<label for="brand8"><span></span> 一：变量类型</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand7" value="">
-										<label for="brand7"><span></span> 二：类</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand3" value="">
-										<label for="brand3"><span></span> 三：接口</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand4" value="">
-										<label for="brand4"><span></span> 四：继承和多态</label>
-									</li>
-								</ul>
+					<div class="sign-up">
+						<h3>个人信息</h3>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>学号 :</h4>
 							</div>
+							<div class="sign-up2">
+								<input type="text" readonly="readonly" value="<s:property value="#session.user.sno"/>"/>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>姓名:</h4>
+							</div>
+							<div class="sign-up2">
+								<input type="text" readonly="readonly" value="<s:property value="#session.user.sname"/>" />
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>班级 :</h4>
+							</div>
+							<div class="sign-up2">
+								<input type="text" readonly="readonly" value="<s:property value="#session.user.sclass"/>"/>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sub_home">
+							<div class="sub_home_right">
+								<p>返回<a href="stustart.jsp">首页</a></p>
+							</div>
+							<div class="clearfix"> </div>
 						</div>
 					</div>
 				</div>
-				<div class="clearfix"> </div>
 			</div>
 		</div>
-				</div>
-			<!--body wrapper start-->
-			</div>
-			 <!--body wrapper end-->
-		</div>
-        <!--footer section start-->
+		<!--footer section start-->
 			<footer>
-			   <p>Copyright &copy; 2017.黑龙江省哈尔滨市香坊区和兴路26号东北林业大学 <a href="http://127.0.0.1:8080/bishe/index.jsp" target="_blank" title="Java语言翻转课堂式教学模式教学系统"> Java语言翻转课堂教学模式系统</a>
+			   <p>Copyright &copy; 2017.黑龙江省哈尔滨市香坊区和兴路26号东北林业大学 <a href="http://127.0.0.1:8080/bishe/index.jsp" target="_blank" title="Java语言翻转课堂式教学模式系统"> Java语言翻转课堂教学模式系统</a>
 </p>
 			</footer>
         <!--footer section end-->
-
-      <!-- main content end-->
-   </section>
-  
+	</section>
+	
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->

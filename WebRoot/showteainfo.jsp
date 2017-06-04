@@ -1,13 +1,15 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>个人信息查看</title>
+<base href=" <%=basePath%>"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -35,12 +37,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//end-animate-->
  <!-- Meters graphs -->
 <script src="js/jquery-1.10.2.min.js"></script>
-<!-- Placed js at the end of the document so the pages load faster -->
-
+<script type="text/javascript">
+ $(document).ready(function() {    
+         window.setTimeout(function(){
+        	 if(<%=session.getAttribute("user")==null%>){
+        		 location.href="login.jsp";      
+        	 }       
+         }, 1000);     
+ }); 
+ </script>
 </head> 
    
  <body class="sign-in-up sticky-header left-side-collapsed">
-    <section>
+    =<section>
     	    <!-- left side start-->
 		<div class="left-side sticky-left-side">
 
@@ -57,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<li class="active"><a href="index.jsp"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
+						<li class="active"><a href="<%=basePath %>teastart.jsp"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>设置</span></a>
@@ -75,9 +84,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
-								<li><a href="login.jsp">登录</a> </li>
-								<li><a href="register.jsp">注册</a></li>
-								<li><a href="blank_page.jsp">404</a></li>
+								<li><a href="<%=basePath %>login.jsp">登录</a> </li>
+								<li><a href="<%=basePath %>tearegister.jsp">注册</a></li>
+								<li><a href="<%=basePath %>blank_page.jsp">404</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -108,7 +117,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
@@ -149,7 +157,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/1.png" alt=""></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -171,9 +178,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>学生</span></p>
+											<p><s:property value="#session.user.tname"/><span><s:property value="#session.user.trank"/></span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -181,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>	
 								</a>
 								<ul class="dropdown-menu drp-mnu">
-									<li> <a href="showinfo.jsp"><i class="fa fa-user"></i>个人信息查看</a> </li> 
+									<li> <a href="teacher/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
 									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
@@ -202,9 +208,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>学号 :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" value="20134365" readonly="readonly"/>
-								</form>
+								<input type="text" value="<s:property value="#session.user.tno"/>" readonly="readonly"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -213,26 +217,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>姓名:</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" value="吴开星" readonly="readonly"/>
-								</form>
+								<input type="text" value="<s:property value="#session.user.tname"/>" readonly="readonly"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>班级 :</h4>
+								<h4>职级 :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" value="计算机科学与技术2013-05" readonly="readonly"/>
-								</form>
+								<input type="text" value="<s:property value="#session.user.trank"/>" readonly="readonly"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sub_home">
 							<div class="sub_home_right">
-								<p>返回<a href="index.jsp">首页</a></p>
+								<p>返回<a href="<%=basePath %>teastart.jsp">首页</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>

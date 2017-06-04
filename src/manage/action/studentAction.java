@@ -2,9 +2,9 @@ package manage.action;
 
 import java.util.Map;
 
-import manage.entity.Teacher;
+import manage.entity.Student;
 import manage.entity.UserD;
-import manage.service.teacherService;
+import manage.service.studentService;
 import manage.service.userService;
 import manage.vo.User;
 
@@ -15,31 +15,29 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+@SuppressWarnings("serial")
 @Controller
 @Scope("prototype")
-public class teacherAction extends ActionSupport{
-	private static final long serialVersionUID = 1L;
-	
+public class studentAction extends ActionSupport{
 	private User user;
-	private Teacher tea;
+	private Student student;
 	private Map<String, Object> session;
+	
 	@Autowired
-	private teacherService tservice;
+	private studentService sservice;
 	
 	@Autowired
 	private userService uservice;
 	
-	private String update_pwd_msg;
-	
 	/**
-	 * 添加Teacher用户，用户注册。
+	 * 添加Student用户，用户注册。
 	 * @return
 	 */
-	public String addTeacher(){
+	public String addStudent(){
 		try {
-			UserD userd = new UserD(tea.getTno(),user.getPassword(),"1");
+			UserD userd = new UserD(student.getSno(),user.getPassword(),"0");
 			uservice.add_UserD(userd);
-			tservice.add_Teacher(tea);
+			sservice.add_Student(student);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ERROR;
@@ -48,15 +46,15 @@ public class teacherAction extends ActionSupport{
 	}
 	
 	/**
-	 * 修改Teacher个人信息。
+	 * 修改Student信息。
 	 * @return
 	 */
-	public String updateTeacher() {
-		try {
-			tservice.update_Teacher(tea);
+	public String updateStudent() {
+		try{
+			sservice.update_Student(student);
 			session =  ActionContext.getContext().getSession();
-			session.put("user", tea);
-		} catch (Exception e) {
+			session.put("user", student);
+		} catch(Exception e){
 			e.printStackTrace();
 			return ERROR;
 		}
@@ -66,20 +64,16 @@ public class teacherAction extends ActionSupport{
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public String getUpdate_pwd_msg() {
-		return update_pwd_msg;
+	public Student getStudent() {
+		return student;
 	}
-	public void setUpdate_pwd_msg(String update_pwd_msg) {
-		this.update_pwd_msg = update_pwd_msg;
-	}
-	public Teacher getTea() {
-		return tea;
-	}
-	public void setTea(Teacher tea) {
-		this.tea = tea;
+
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 }

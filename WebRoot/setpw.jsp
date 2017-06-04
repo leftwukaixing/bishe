@@ -1,13 +1,15 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>密码修改</title>
+<base href=" <%=basePath%>"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -33,9 +35,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
-<!----webfonts--->
-<link href='http://fonts.useso.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-<!---//webfonts---> 
  <!-- Meters graphs -->
 <script src="js/jquery-1.10.2.min.js"></script>
 <!-- Placed js at the end of the document so the pages load faster -->
@@ -177,7 +176,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="profile_img">	
 										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>学生</span></p>
+										 	<s:if test="#session.user.sname != ''">
+										 		<p><s:property value="#session.user.sname"/><span>学生</span></p>
+										 	</s:if>
+											<s:else>
+												<p><s:property value="#session.user.tname"/><span><s:property value="#session.user.trank"/></span></p>
+											</s:else>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -185,7 +189,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>	
 								</a>
 								<ul class="dropdown-menu drp-mnu">
-									<li> <a href="showinfo.jsp"><i class="fa fa-user"></i>个人信息查看</a> </li> 
+									<s:if test="#session.user.sname != ''">
+										<li> <a href="student/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
+									</s:if>
+									<s:else>
+										<li> <a href="teacher/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
+									</s:else>
 									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
@@ -200,15 +209,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div id="page-wrapper" class="sign-in-wrapper">
 				<div class="graphs">
 					<div class="sign-up">
+						<form action="updatePW!updatePW" method="post">
 						<h3>密码修改</h3>
 						<div class="sign-u">
 							<div class="sign-up1">
 								<h4>原始密码* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" />
-								</form>
+								<input type="text" />
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -217,9 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>新密码* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" />
-								</form>
+								<input type="text" name="user.password"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -228,23 +234,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>确认密码* :</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" />
-								</form>
+								<input type="text" />
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sub_home">
 							<div class="sub_home_left">
-								<form>
-									<input type="submit" value="确认修改">
-								</form>
+								<input type="submit" value="确认修改">
 							</div>
 							<div class="sub_home_right">
-								<p>返回<a href="index.jsp">首页</a></p>
+								<s:if test="#session.user.sname != ''">
+									<p>返回<a href="stustart.jsp">首页</a></p>
+								</s:if>
+								<s:else>
+									<p>返回<a href="teastart.jsp">首页</a></p>
+								</s:else>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>

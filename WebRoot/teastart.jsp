@@ -1,12 +1,15 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 <title>主页</title>
+<base href=" <%=basePath%>"/> 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -17,7 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- Graph CSS -->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="css/font-awesome.css" rel="stylesheet" /> 
 <!-- jQuery -->
 <!-- lined-icons -->
 <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
@@ -26,24 +29,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/Chart.js"></script>
 <!-- //chart -->
 <!--animate-->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all" />
 <script src="js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 
-<link href="css/video-js.min.css" rel="stylesheet">
+<link href="css/video-js.min.css" rel="stylesheet" />
 <script src="js/video.min.js"></script>	
 	
 <!--//end-animate-->
  <!-- Meters graphs -->
 <script src="js/jquery-1.10.2.min.js"></script>
-<!-- Placed js at the end of the document so the pages load faster -->
-
+<script type="text/javascript">
+ $(document).ready(function() {    
+         window.setTimeout(function(){
+        	 if(<%=session.getAttribute("user")==null%>){
+        		 location.href="login.jsp";      
+        	 }       
+         }, 1000);     
+ }); 
+ </script>
 </head> 
    
  <body class="sticky-header left-side-collapsed">
-    <section>
+    '<section>
     <!-- left side start-->
 		<div class="left-side sticky-left-side">
 
@@ -78,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
-								<li><a href="login.jsp">登录</a> </li>
+								<li><a href="tearegister.jsp">登录</a> </li>
 								<li><a href="register.jsp">注册</a></li>
 								<li><a href="blank_page.jsp">404</a></li>
 							</ul>
@@ -176,9 +186,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/3.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>张三丰<span>太极宗师</span></p>
+											<p><s:property value="#session.user.tname"/><span><s:property value="#session.user.trank"/></span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -186,7 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>	
 								</a>
 								<ul class="dropdown-menu drp-mnu">
-									<li> <a href="showinfo.jsp"><i class="fa fa-user"></i>个人信息查看</a> </li> 
+									<li> <a href="teacher/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
 									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>

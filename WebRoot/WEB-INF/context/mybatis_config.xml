@@ -4,6 +4,8 @@
 
     <mappers>  
         <mapper resource="manage/mapper/login.xml" /> 
-        <mapper resource="manage/mapper/teacher.xml" /> 
+        <mapper resource="manage/mapper/teacher.xml" />
+        <mapper resource="manage/mapper/student.xml" />
+        <mapper resource="manage/mapper/user.xml"/>
     </mappers>  
 </configuration>  

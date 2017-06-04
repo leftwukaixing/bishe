@@ -22,8 +22,18 @@
         	<result name="success1">/stustart.jsp</result>
         	<result name="error">/login.jsp</result>
         </action>
+        <action name="addTeacher" class="manage.action.teacherAction">
+        	<result name="success">/login.jsp</result>
+        	<result name="error">/tearegister.jsp</result>
+        </action>
+        <action name="addStudent" class="manage.action.studentAction">
+        	<result name="success">/login.jsp</result>
+        	<result name="error">/sturegister.jsp</result>
+        </action>
+        <action name="updatePW" class="manage.action.loginAction">
+        	<result name="success">/login.jsp</result>
+        	<result name="error">/setpw.jsp</result>
+        </action>
     </package>
-
-    
 </struts>  
 
