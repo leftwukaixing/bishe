@@ -7,5 +7,7 @@
         <mapper resource="manage/mapper/teacher.xml" />
         <mapper resource="manage/mapper/student.xml" />
         <mapper resource="manage/mapper/user.xml"/>
+        <mapper resource="manage/mapper/knowledge.xml"/>
+        <mapper resource="manage/mapper/watchLog.xml"/>
     </mappers>  
 </configuration>  

@@ -1,13 +1,15 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>视频上传</title>
+<base href=" <%=basePath%>"/> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -35,12 +37,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//end-animate-->
  <!-- Meters graphs -->
 <script src="js/jquery-1.10.2.min.js"></script>
-<!-- Placed js at the end of the document so the pages load faster -->
-
+<script type="text/javascript">
+ $(function(){
+	 $("#btn-submit").click(function(){
+		 $("#fileN").val($("#fil").val());
+	 });
+ });
+ </script>
 </head> 
    
  <body class="sign-in-up sticky-header left-side-collapsed">
-    <section>
+    :<section>
     	    <!-- left side start-->
 		<div class="left-side sticky-left-side">
 
@@ -100,15 +107,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="nofitications-dropdown">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
-									
-										<ul class="dropdown-menu">
+									<ul class="dropdown-menu">
 											<li>
 												<div class="notification_header">
 													<h3>You have 3 new messages</h3>
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
@@ -149,7 +154,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/1.png" alt=""></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -171,9 +175,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/3.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>张三丰<span>太极宗师</span></p>
+											<p><s:property value="#session.user.tname"/><span><s:property value="#session.user.trank"/></span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -182,7 +185,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</a>
 								<ul class="dropdown-menu drp-mnu">
 									<li> <a href="showinfo.jsp"><i class="fa fa-user"></i>个人信息查看</a> </li> 
-									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
+									<li> <a href="index.action"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
 							<div class="clearfix"> </div>
@@ -197,14 +200,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="graphs">
 					<div class="sign-up">
 						<h3>视频上传</h3>
+						<div>
+							<h3><span class="label label-danger"><s:property value="upload_msg"/></span></h3>
+						</div>
+						<form action="knowledge/uploadKnowledge!uploadKnowledge" method="post" enctype="multipart/form-data">
 						<div class="sign-u">
 							<div class="sign-up1">
-								<input type="button" class="btn btn-info" value="选择文件">
+								<input type="file" id="fil" name="file" accept="video/*" value=""/>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" />
-								</form>
+								<input type="text" id="fileN" name="fileName" value="" hidden/>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>章节:</h4>
+							</div>
+							<div class="sign-up2">
+								<input type="text" name="klg.chapter" value="" />
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -213,9 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>知识点名称:</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<input type="text" />
-								</form>
+								<input type="text" name="klg.content"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -224,23 +236,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>详细描述:</h4>
 							</div>
 							<div class="sign-up2">
-								<form>
-									<textarea class="form-control" rows="3"></textarea>
-								</form>
+								<textarea class="form-control" rows="3" name="klg.describe"></textarea>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						<div class="sub_home">
 							<div class="sub_home_left">
-								<form>
-									<input type="submit" value="确认上传">
-								</form>
+								<input type="submit" id="btn-submit" value="确认上传">
 							</div>
 							<div class="sub_home_right">
-								<p>返回<a href="index.jsp">首页</a></p>
+								<p>返回<a href="teastart.jsp">主页面</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>

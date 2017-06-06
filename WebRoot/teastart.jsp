@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="chat.jsp">我的讨论</a> </li>
 							</ul>
 						</li>      
-						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
+						<li><a href="uploads.jsp"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
 								<li><a href="tearegister.jsp">登录</a> </li>

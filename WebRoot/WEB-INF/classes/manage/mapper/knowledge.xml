@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="manage.dao.knowledgeDao">  
+    <insert id="add_knowledge"  parameterType="manage.entity.Knowledge">  
+		<selectKey keyProperty="kno" resultType="String" order="BEFORE">
+			select KLG_SEQ.nextval from dual
+		</selectKey>
+		insert into knowledges(kno,chapter,content,describe) values(#{kno},#{chapter},#{content},#{describe})
+    </insert>
+    <select id="select_knowledges" resultType="manage.entity.Knowledge">
+    	select * from knowledges
+    </select>
+</mapper>

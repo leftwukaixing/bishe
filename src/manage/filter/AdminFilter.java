@@ -36,7 +36,8 @@ public class AdminFilter implements Filter{
 		Object user = session.getAttribute("user");
 		if(user!=null || list.contains(path) || path.endsWith("js")
 				|| path.endsWith("css") || path.endsWith("jpg")
-				|| path.endsWith("png") || path.endsWith("gif")){
+				|| path.endsWith("png") || path.endsWith("gif") 
+				|| path.endsWith("mp4") || path.endsWith("icon")){
 			// 放行
 			chain.doFilter(request, response);
 			//System.out.println("放行");

@@ -1,13 +1,15 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>知识点列表</title>
+<base href=" <%=basePath%>"/> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -110,7 +112,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
@@ -151,7 +152,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/1.png" alt=""></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -175,7 +175,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="profile_img">	
 										<span style="background:url(images/3.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>张三丰<span>太极宗师</span></p>
+											<p><s:property value="#session.user.tname"/><span><s:property value="#session.user.trank"/></span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
