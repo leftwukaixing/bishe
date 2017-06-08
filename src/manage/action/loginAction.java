@@ -84,7 +84,6 @@ public class loginAction extends ActionSupport{
 		if (ud.getPwd().equals(oldPW)) {
 			try {
 				ud.setPwd(user.getPassword());
-				System.out.println(ud.toString());
 				uservice.update_PW(ud);
 			} catch (Exception e){
 				e.printStackTrace();
