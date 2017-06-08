@@ -11,4 +11,7 @@
     <update id="update_Student" parameterType="manage.entity.Student">
     	update students set sname=#{sname},sclass=#{sclass} where sno=#{sno}
     </update>
+    <select id="select_count" resultType="java.lang.Integer">
+    	select count(sno) from students
+    </select>
 </mapper>

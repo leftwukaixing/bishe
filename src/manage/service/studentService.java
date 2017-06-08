@@ -24,4 +24,8 @@ public class studentService {
 	public void update_Student(Student stu){
 		dao.update_Student(stu);
 	}
+	
+	public int select_count(){
+		return dao.select_count();
+	}
 }

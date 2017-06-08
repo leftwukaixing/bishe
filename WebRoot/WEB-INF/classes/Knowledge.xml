@@ -13,8 +13,17 @@
    
     <package name="knowledge" namespace="/knowledge" extends="struts-default"> 
     	<action name="uploadKnowledge" class="manage.action.knowledgeAction">
-            <result name="success">/teatables.jsp</result>
+            <result name="success">/uploads.jsp</result>
+            <result name="error">/uploads.jsp</result>
             <result name="input">/uploads.jsp</result>
+        </action>
+        <action name="listTeaKnowledge" class="manage.action.knowledgeAction">
+        	<result name="success">/teatables.jsp</result>
+        	<result name="error">/blank_page.jsp</result>
+        </action>
+        <action name="listStuKnowledge" class="manage.action.knowledgeAction">
+        	<result name="success">/tables.jsp</result>
+        	<result name="error">/blank_page.jsp</result>
         </action>
     </package> 
     

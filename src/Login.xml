@@ -19,7 +19,10 @@
         </action>
         <action name="loginAction" class="manage.action.loginAction">
         	<result name="success">/teastart.jsp</result>
-        	<result name="success1">/stustart.jsp</result>
+        	<result name="success1" type="redirectAction">
+        		<param name="namespace">/student</param>
+        		<param name="actionName">start!Start</param>
+        	</result>
         	<result name="error">/login.jsp</result>
         </action>
         <action name="addTeacher" class="manage.action.teacherAction">

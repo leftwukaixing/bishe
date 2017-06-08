@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  $(document).ready(function() {    
          window.setTimeout(function(){
         	 if(<%=session.getAttribute("user")==null%>){
-        		 location.href="login.jsp";      
+        		 location.href="index.action";      
         	 }       
          }, 1000);     
  }); 
@@ -53,16 +53,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head> 
    
  <body class="sticky-header left-side-collapsed">
-    <section>
+    wh<section>
     <!-- left side start-->
 		<div class="left-side sticky-left-side">
 
 			<!--logo and iconic logo start-->
 			<div class="logo">
-				<h1><a href="index.jsp">翻转<span>课堂</span></a></h1>
+				<h1><a href="student/start!Start">翻转<span>课堂</span></a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="index.jsp"><i class="lnr lnr-home"></i> </a>
+				<a href="student/start!Start"><i class="lnr lnr-home"></i> </a>
 			</div>
 
 			<!--logo and iconic logo end-->
@@ -70,28 +70,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<li class="active"><a href="index.jsp"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
+						<li class="active"><a href="student/start!Start"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>设置</span></a>
 								<ul class="sub-menu-list">
-									<li><a href="student/setInfo.action">个人信息设置</a> </li>
-									<li><a href="student/setpw.action">密码修改</a></li>
+									<li><a href="student/update.action">个人信息设置</a> </li>
+									<li><a href="student/updatePW.action">密码修改</a></li>
 								</ul>
 						</li>
-						<li><a href="tables.jsp"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
+						<li><a href="knowledge/listStuKnowledge!listStuKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="chat.jsp">我的讨论</a> </li>
+								<li><a href="student/chat.action">我的讨论</a> </li>
 							</ul>
 						</li>      
-						<li><a href="codes.jsp"><i class="lnr lnr-pencil"></i> <span>我的笔记</span></a></li>
-						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
+						<li><a href="student/listWatchLog!listWatchLog"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
-								<li><a href="login.jsp">登录</a> </li>
-								<li><a href="register.jsp">注册</a></li>
-								<li><a href="blank_page.jsp">404</a></li>
+								<li><a href="index.action">登录</a> </li>
+								<li><a href="student/register.action">注册</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -124,7 +122,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
@@ -165,7 +162,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/1.png" alt=""></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -197,7 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</a>
 								<ul class="dropdown-menu drp-mnu">
 									<li> <a href="student/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
-									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
+									<li> <a href="index.action"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
 							<div class="clearfix"> </div>
@@ -216,18 +212,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 			<div class="col-md-9 span_9">
 				<video id="my-player" class="video-js" controls preload="auto" poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'>
-				<source src="media/test.mp4" type="video/mp4"></source>
+					<source src="media/1-绪论.mp4" ></source>
 				</video>
 			</div>
 
-			<script type="text/javascript">
-			//打开自动播放
-    		var myPlayer = videojs('my-player');
-    		videojs("my-player").ready(function(){
-        		var myPlayer = this;
-        		myPlayer.play();
-    		});
-			</script>		
+				
 		
 			<div class="col-md-3 span_7">
 				<div class="activity_box activity_box2">
@@ -236,26 +225,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="activity-row activity-row1">
 							<div class="single-bottom">
 								<ul>
-									<li>
-										<input type="checkbox"  id="brand9" value="">
-										<label for="brand9"><span></span> 绪论 </label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand8" value="">
-										<label for="brand8"><span></span> 一：变量类型</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand7" value="">
-										<label for="brand7"><span></span> 二：类</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand3" value="">
-										<label for="brand3"><span></span> 三：接口</label>
-									</li>
-									<li>
-										<input type="checkbox"  id="brand4" value="">
-										<label for="brand4"><span></span> 四：继承和多态</label>
-									</li>
+									<s:iterator var="obj" value="list" >
+										<s:if test="map[#obj.kno] == 1">
+											<li>
+												<input type="checkbox" checked="checked">
+												<label><span></span>
+													<button onclick="changeSource(this)" style="background-color:transparent;border:none"
+													 value="<s:property value="#obj.chapter"/>-<s:property value="#obj.content"/>">
+													 <s:property value="#obj.chapter"/>-<s:property value="#obj.content"/>
+													</button>
+												</label>
+											</li>
+										</s:if>
+										<s:else>
+											<li>
+												<input type="checkbox">
+												<label><span></span>
+													<button onclick="changeSource(this)" style="background-color:transparent;border:none"
+													 value="<s:property value="#obj.chapter"/>-<s:property value="#obj.content"/>">
+													 <s:property value="#obj.chapter"/>-<s:property value="#obj.content"/>
+													</button>
+												</label>
+											</li>
+										</s:else>
+									</s:iterator>
 								</ul>
 							</div>
 						</div>
@@ -282,6 +275,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+//打开暂停播放
+var myPlayer = videojs('my-player');
+videojs("my-player").ready(function(){
+	var myPlayer = this;
+	myPlayer.pause();
+});
+
+
+//修改视频播放源
+function changeSource(obj) {
+	var video = document.getElementsByTagName('video')[0];
+    var sources = video.getElementsByTagName('source');
+    sources[0].src = 'media/'+obj.value+'.mp4';
+    video.src='media/'+obj.value+'.mp4';
+    video.load();
+}
+</script>	
 </body>
 </html>

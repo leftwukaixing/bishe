@@ -48,10 +48,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<!--logo and iconic logo start-->
 			<div class="logo">
-				<h1><a href="index.jsp">翻转<span>课堂</span></a></h1>
+				<h1><a href="teacher/start.action">翻转<span>课堂</span></a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="index.jsp"><i class="lnr lnr-home"></i> </a>
+				<a href="teacher/start.action"><i class="lnr lnr-home"></i> </a>
 			</div>
 
 			<!--logo and iconic logo end-->
@@ -59,27 +59,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<li class="active"><a href="index.jsp"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
+						<li class="active"><a href="teacher/start.action"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>设置</span></a>
 								<ul class="sub-menu-list">
-									<li><a href="setinfo.jsp">个人信息设置</a> </li>
-									<li><a href="setpw.jsp">密码修改</a></li>
+									<li><a href="teacher/update.action">个人信息设置</a> </li>
+									<li><a href="teacher/updatePW.action">密码修改</a></li>
 								</ul>
 						</li>
-						<li><a href="tables.jsp"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
+						<li><a href="knowledge/listTeaKnowledge!listTeaKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="chat.jsp">我的讨论</a> </li>
+								<li><a href="teacher/chat.action">我的讨论</a> </li>
 							</ul>
-						</li>
-						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
+						</li>      
+						<li><a href="teacher/upload.action"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
-								<li><a href="login.jsp">登录</a> </li>
-								<li><a href="register.jsp">注册</a></li>
-								<li><a href="blank_page.jsp">404</a></li>
+								<li><a href="index.action">登录</a> </li>
+								<li><a href="teacher/register.action">注册</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -173,7 +172,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/3.png) no-repeat center"> </span> 
 										 <div class="user-name">
 											<p><s:property value="#session.user.tname"/><span><s:property value="#session.user.trank"/></span></p>
 										 </div>
@@ -183,8 +181,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>	
 								</a>
 								<ul class="dropdown-menu drp-mnu">
-									<li> <a href="showinfo.jsp"><i class="fa fa-user"></i>个人信息查看</a> </li> 
-									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
+									<li> <a href="teacher/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
+									<li> <a href="teacher/logout.action"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
 							<div class="clearfix"> </div>
@@ -205,43 +203,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  <thead>
 							<tr>
 							  <th>ID</th>
+							  <th>章节信息</th>
 							  <th>知识点名称</th>
 							  <th>详细描述</th>
 							  <th>观看比例</th>
 							</tr>
 						  </thead>
 						  <tbody>
-							<tr class="success">
-							  <th scope="row">1</th>
-							  <td>第一章、绪论</td>
-							  <td>发展史</td>
-							  <td>52/52</td>
-							</tr>
-							<tr class="success">
-							  <th scope="row">3</th>
-							  <td>第二章、基本类型</td>
-							  <td>Java语言的结伴数据类型，定义方式</td>
-							  <td>52/52</td>
-							</tr>
-							<tr class="danger">
-							  <th scope="row">2</th>
-							  <td>第三章、类</td>
-							  <td>类的定义，使用，例子</td>
-							  <td>30/52</td>
-							</tr>
-							<tr>
-							  <th scope="row">4</th>
-							  <td>第四章、接口</td>
-							  <td>系统自定义接口，接口定义方式，使用场景，功能特性</td>
-							  <td>0/52</td>
-							</tr>
-							<tr>
-							  <th scope="row">5</th>
-							  <td>第五章、继承和多态</td>
-							  <td>继承的方式，特点，实现</td>
-							  <td>0/52</td>
-							</tr>
+						  <s:iterator var="obj" value="list" >
+						  	<s:if test="map[#obj.kno] == countStu">
+						  		<tr class="success">
+						  			<th scope="row"><s:property value="#obj.kno"/></th>
+						  			<td><s:property value="#obj.chapter"/></td>
+						  			<td><s:property value="#obj.content"/></td>
+						  			<td><s:property value="#obj.describe"/></td>
+						  			<td><s:property value="map[#obj.kno]"/>/<s:property value="countStu"/></td>
+						  		</tr>
+						  	</s:if>
+						  	<s:else>
+						  		<tr>
+						  			<th scope="row"><s:property value="#obj.kno"/></th>
+						  			<td><s:property value="#obj.chapter"/></td>
+						  			<td><s:property value="#obj.content"/></td>
+						  			<td><s:property value="#obj.describe"/></td>
+						  			<td><s:property value="map[#obj.kno]"/>/<s:property value="countStu"/></td>
+						  		</tr>
+						  	</s:else>
+						  </s:iterator>
 						  </tbody>
+						  <tfoot>
+						  	<tr>
+							  <th>ID</th>
+							  <th>章节信息</th>
+							  <th>知识点名称</th>
+							  <th>详细描述</th>
+							  <th>观看比例</th>
+							</tr>
+						  </tfoot>
 						</table>
 					   </div>
 					</div>

@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import manage.entity.Teacher;
-
 public class AdminFilter implements Filter{
 	
 	// 存储默认允许访问的页面
@@ -43,7 +41,6 @@ public class AdminFilter implements Filter{
 			//System.out.println("放行");
 		}else{
 			res.sendRedirect(context + "/index.action");
-			System.out.println(path+"---不放行");
 		}
 	}
 
@@ -51,8 +48,6 @@ public class AdminFilter implements Filter{
 	public void init(FilterConfig arg0) throws ServletException {
 		// 初始化默认访问页面
 		list.add("/bishe/index.action");
-		list.add("/bishe/tearegister.jsp");
-		list.add("/bishe/sturegister.jsp");
 		list.add("/bishe/addTeacher!addTeacher");
 		list.add("/bishe/addStudent!addStudent");
 		list.add("/bishe/loginAction!selectUser");

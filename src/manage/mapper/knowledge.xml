@@ -9,6 +9,6 @@
 		insert into knowledges(kno,chapter,content,describe) values(#{kno},#{chapter},#{content},#{describe})
     </insert>
     <select id="select_knowledges" resultType="manage.entity.Knowledge">
-    	select * from knowledges
+    	select * from knowledges order by kno
     </select>
 </mapper>

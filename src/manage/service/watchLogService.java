@@ -15,7 +15,11 @@ public class watchLogService {
 	@Autowired
 	private watchLogDao dao;
 	
-	public List<WatchLog> select_WatchLogs(String kno){
-		return dao.select_WatchLogs_by_kno(kno);
+	public List<WatchLog> select_WatchLogs_By_Kno(String kno){
+		return dao.select_WatchLogs_By_Kno(kno);
+	}
+	
+	public List<WatchLog> select_WatchLogs_By_Sno(String sno){
+		return dao.select_WatchLogs_By_Sno(sno);
 	}
 }

@@ -16,4 +16,8 @@ public class userService {
 	public void add_UserD (UserD userd) {
 		dao.add_UserD(userd);
 	}
+	
+	public void update_PW(UserD userd) {
+		dao.update_PW(userd);
+	}
 }

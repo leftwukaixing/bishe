@@ -5,4 +5,7 @@
 	<select id="select_watchLogs_by_kno" parameterType="String" resultType="manage.entity.WatchLog">
 		select * from watch_log where kno=#{kno}
 	</select> 
+	<select id="select_watchLogs_by_sno" parameterType="String" resultType="manage.entity.WatchLog">
+		select * from watch_log where sno=#{sno}
+	</select> 
 </mapper>

@@ -14,9 +14,14 @@ public class watchLogDaoImpl implements watchLogDao{
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public List<WatchLog> select_WatchLogs_by_kno(String kno) {
+	public List<WatchLog> select_WatchLogs_By_Kno(String kno) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectList("select_watchLogs_by_kno",kno);
+	}
+
+	public List<WatchLog> select_WatchLogs_By_Sno(String sno) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("select_watchLogs_by_sno",sno);
 	}
 
 }

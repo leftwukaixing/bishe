@@ -1,13 +1,15 @@
+<%@ page import="org.springframework.http.HttpRequest"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>观看记录</title>
+<base href=" <%=basePath%>"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -46,10 +48,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<!--logo and iconic logo start-->
 			<div class="logo">
-				<h1><a href="index.jsp">翻转<span>课堂</span></a></h1>
+				<h1><a href="student/start!Start">翻转<span>课堂</span></a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="index.jsp"><i class="lnr lnr-home"></i> </a>
+				<a href="student/start!Start"><i class="lnr lnr-home"></i> </a>
 			</div>
 
 			<!--logo and iconic logo end-->
@@ -57,28 +59,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<li class="active"><a href="index.jsp"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
+						<li class="active"><a href="student/start!Start"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>设置</span></a>
 								<ul class="sub-menu-list">
-									<li><a href="setinfo.jsp">个人信息设置</a> </li>
-									<li><a href="setpw.jsp">密码修改</a></li>
+									<li><a href="student/update.action">个人信息设置</a> </li>
+									<li><a href="student/updatePW.action">密码修改</a></li>
 								</ul>
 						</li>
-						<li><a href="tables.jsp"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
+						<li><a href="knowledge/listStuKnowledge!listStuKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="chat.jsp">我的讨论</a> </li>
+								<li><a href="student/chat.action">我的讨论</a> </li>
 							</ul>
 						</li>      
-						<li><a href="codes.jsp"><i class="lnr lnr-pencil"></i> <span>我的笔记</span></a></li>
-						<li><a href="watchlog.jsp"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
+						<li><a href="student/listWatchLog!listWatchLog"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
-								<li><a href="login.jsp">登录</a> </li>
-								<li><a href="register.jsp">注册</a></li>
-								<li><a href="blank_page.jsp">404</a></li>
+								<li><a href="index.action">登录</a> </li>
+								<li><a href="student/register.action">注册</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -111,7 +111,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
@@ -152,7 +151,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/1.png" alt=""></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -174,9 +172,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>吴开星<span>学生</span></p>
+											<p><s:property value="#session.user.sname"/><span>学生</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -184,8 +181,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>	
 								</a>
 								<ul class="dropdown-menu drp-mnu">
-									<li> <a href="showinfo.jsp"><i class="fa fa-user"></i>个人信息查看</a> </li> 
-									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
+									<li> <a href="student/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
+									<li> <a href="index.action"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
 							<div class="clearfix"> </div>
@@ -205,55 +202,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<table class="table">
 						  <thead>
 							<tr>
-							  <th>ID</th>
-							  <th>知识点名称</th>
-							  <th>详细描述</th>
+							  <th>知识点ID</th>
 							  <th>观看进度</th>
 							  <th>观看时间</th>
 							  <th>完成状态</th>
 							</tr>
 						  </thead>
 						  <tbody>
-							<tr class="success">
-							  <th scope="row">1</th>
-							  <td>第一章、绪论</td>
-							  <td>发展史</td>
-							  <td>15:36</td>
-							  <td>2017-5-10 10:49</td>
-							  <td>已完成</td>
-							</tr>
-							<tr class="success">
-							  <th scope="row">3</th>
-							  <td>第二章、基本类型</td>
-							  <td>Java语言的结伴数据类型，定义方式</td>
-							  <td>16:42</td>
-							  <td>2017-5-12 18:33</td>
-							  <td>已完成</td>
-							</tr>
-							<tr class="danger">
-							  <th scope="row">2</th>
-							  <td>第三章、类</td>
-							  <td>类的定义，使用，例子</td>
-							  <td>6:57</td>
-							  <td>2017-5-18 13:05</td>
-							  <td>未完成</td>
-							</tr>
-							<tr>
-							  <th scope="row">4</th>
-							  <td>第四章、接口</td>
-							  <td>系统自定义接口，接口定义方式，使用场景，功能特性</td>
-							  <td>00:00</td>
-							  <td></td>
-							  <td>未完成</td>
-							</tr>
-							<tr>
-							  <th scope="row">5</th>
-							  <td>第五章、继承和多态</td>
-							  <td>继承的方式，特点，实现</td>
-							  <td>00:00</td>
-							  <td></td>
-							  <td>未完成</td>
-							</tr>
+						  	<s:iterator var="obj" value="list" >
+						  		<s:if test="#obj.status == 1">
+						  			<tr class="success">
+						  				<th scope="row"><s:property value="#obj.kno"/></th>
+						  				<th><s:property value="#obj.progress"/></th>
+						  				<th><s:property value="#obj.watch_time"/></th>
+						  				<td>已完成</td>
+						  			</tr>
+						  		</s:if>
+						  		<s:else>
+						  			<tr class="danger">
+						  				<th scope="row"><s:property value="#obj.kno"/></th>
+						  				<th><s:property value="#obj.progress"/></th>
+						  				<th><s:property value="#obj.watch_time"/></th>
+						  				<td>未完成</td>
+						  			</tr>
+						  		</s:else>
+						  	</s:iterator>
 						  </tbody>
 						</table>
 					   </div>

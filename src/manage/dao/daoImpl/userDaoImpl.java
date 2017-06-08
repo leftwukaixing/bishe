@@ -17,4 +17,9 @@ public class userDaoImpl implements userDao{
 		sqlSessionTemplate.insert("add_User", userd);
 	}
 
+	public void update_PW(UserD userd) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.update("update_Pwd", userd);
+	}
+
 }

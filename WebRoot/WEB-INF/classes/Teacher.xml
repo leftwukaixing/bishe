@@ -11,9 +11,34 @@
             <!-- 开发模式下打印详细的错误信息 -->  
     <constant name="struts.ui.theme" value="xhtml"/> 
     
-	<package name="teacher" namespace="/teacher" extends="struts-default"> 
+	<package name="teacher" namespace="/teacher" extends="struts-default">
+		<action name="start">
+			<result name="success">/teastart.jsp</result>
+		</action> 
         <action name="showInfo">  
             <result name="success">/showteainfo.jsp</result>  
+        </action>
+        <action name="update">
+        	<result name="success">/setteainfo.jsp</result>
+        </action>
+        <action name="updatePW">
+        	<result name="success">/setpw.jsp</result>
+        </action>
+        <action name="upload">
+        	<result name="success">/uploads.jsp</result>
+        </action>
+        <action name="register">
+        	<result name="success">/tearegister.jsp</result>
+        </action>
+        <action name="chat">
+        	<result name="success">/chat.jsp</result>
+        </action>
+        <action name="logout">
+        	<result name="success">/login.jsp</result>
+        </action>
+        <action name="updateInfo" class="manage.action.teacherAction">
+        	<result name="success">/showteainfo.jsp</result>
+        	<result name="error">/setteainfo.jsp</result>
         </action>
     </package> 
 </struts>  

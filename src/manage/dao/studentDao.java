@@ -8,4 +8,6 @@ public interface studentDao {
 	public void add_Student(Student stu);
 	
 	public void update_Student(Student stu);
+	
+	public int select_count();
 }

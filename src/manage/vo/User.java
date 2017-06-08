@@ -15,6 +15,16 @@ public class User {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+	
+	public User(String userid, String password) {
+		super();
+		this.userid = userid;
+		this.password = password;
+	}
+	
+	public User() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "User [password=" + password + ", userid=" + userid + "]";

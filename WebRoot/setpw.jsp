@@ -48,42 +48,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<!--logo and iconic logo start-->
 			<div class="logo">
-				<h1><a href="index.jsp">翻转<span>课堂</span></a></h1>
+				<h1><a href="teacher/start.action">翻转<span>课堂</span></a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="index.jsp"><i class="lnr lnr-home"></i> </a>
+				<a href="teacher/start.action"><i class="lnr lnr-home"></i> </a>
 			</div>
 
 			<!--logo and iconic logo end-->
 			<div class="left-side-inner">
 
 				<!--sidebar nav start-->
+				<s:if test="#session.user.sname != ''">
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<li class="active"><a href="index.jsp"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
+						<li class="active"><a href="student/start!Start"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>设置</span></a>
 								<ul class="sub-menu-list">
-									<li><a href="setinfo.jsp">个人信息设置</a> </li>
-									<li><a href="setpw.jsp">密码修改</a></li>
+									<li><a href="student/update.action">个人信息设置</a> </li>
+									<li><a href="student/updatePW.action">密码修改</a></li>
 								</ul>
 						</li>
-						<li><a href="tables.jsp"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
+						<li><a href="knowledge/listStuKnowledge!listStuKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="chat.jsp">我的讨论</a> </li>
+								<li><a href="student/chat.action">我的讨论</a> </li>
 							</ul>
 						</li>      
-						<li><a href="codes.jsp"><i class="lnr lnr-pencil"></i> <span>我的笔记</span></a></li>
-						<li><a href="media.jsp"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
+						<li><a href="student/listWatchLog!listWatchLog"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
-								<li><a href="login.jsp">登录</a> </li>
-								<li><a href="register.jsp">注册</a></li>
-								<li><a href="blank_page.jsp">404</a></li>
+								<li><a href="index.action">登录</a> </li>
+								<li><a href="student/register.action">注册</a></li>
 							</ul>
 						</li>
 					</ul>
+				</s:if>
+				<s:else>
+					<ul class="nav nav-pills nav-stacked custom-nav">
+						<li class="active"><a href="teacher/start.action"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
+						<li class="menu-list">
+							<a href="#"><i class="lnr lnr-cog"></i>
+								<span>设置</span></a>
+								<ul class="sub-menu-list">
+									<li><a href="teacher/update.action">个人信息设置</a> </li>
+									<li><a href="teacher/updatePW.action">密码修改</a></li>
+								</ul>
+						</li>
+						<li><a href="knowledge/listTeaKnowledge!listTeaKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
+						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
+							<ul class="sub-menu-list">
+								<li><a href="teacher/chat.action">我的讨论</a> </li>
+							</ul>
+						</li>      
+						<li><a href="teacher/upload.action"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
+						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
+							<ul class="sub-menu-list">
+								<li><a href="index.action">登录</a> </li>
+								<li><a href="teacher/register.action">注册</a></li>
+							</ul>
+						</li>
+					</ul>
+				</s:else>
 				<!--sidebar nav end-->
 			</div>
 		</div>
@@ -111,7 +137,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
@@ -152,7 +177,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/1.png" alt=""></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -174,7 +198,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/kaixing.png) no-repeat center"> </span> 
 										 <div class="user-name">
 										 	<s:if test="#session.user.sname != ''">
 										 		<p><s:property value="#session.user.sname"/><span>学生</span></p>
@@ -195,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<s:else>
 										<li> <a href="teacher/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
 									</s:else>
-									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
+									<li> <a href="index.action"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
 							<div class="clearfix"> </div>
@@ -211,12 +234,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="sign-up">
 						<form action="updatePW!updatePW" method="post">
 						<h3>密码修改</h3>
+						<div>
+							<h3><span class="label label-danger"><s:property value="error_msg"/></span></h3>
+						</div>
 						<div class="sign-u">
 							<div class="sign-up1">
 								<h4>原始密码* :</h4>
 							</div>
 							<div class="sign-up2">
-								<input type="text" />
+								<input type="password" name="oldPW"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -225,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>新密码* :</h4>
 							</div>
 							<div class="sign-up2">
-								<input type="text" name="user.password"/>
+								<input type="password" name="user.password"/>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -234,7 +260,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4>确认密码* :</h4>
 							</div>
 							<div class="sign-up2">
-								<input type="text" />
+								<input type="password" />
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -244,10 +270,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="sub_home_right">
 								<s:if test="#session.user.sname != ''">
-									<p>返回<a href="stustart.jsp">首页</a></p>
+									<p>返回<a href="student/start.action">首页</a></p>
 								</s:if>
 								<s:else>
-									<p>返回<a href="teastart.jsp">首页</a></p>
+									<p>返回<a href="teacher/start.action">首页</a></p>
 								</s:else>
 							</div>
 							<div class="clearfix"> </div>

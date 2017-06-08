@@ -59,10 +59,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<!--logo and iconic logo start-->
 			<div class="logo">
-				<h1><a href="index.jsp">翻转<span>课堂</span></a></h1>
+				<h1><a href="teacher/start.action">翻转<span>课堂</span></a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="index.jsp"><i class="lnr lnr-home"></i> </a>
+				<a href="teacher/start.action"><i class="lnr lnr-home"></i> </a>
 			</div>
 
 			<!--logo and iconic logo end-->
@@ -70,27 +70,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<li class="active"><a href="index.jsp"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
+						<li class="active"><a href="teacher/start.action"><i class="lnr lnr-power-switch"></i><span>主页</span></a></li>
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>设置</span></a>
 								<ul class="sub-menu-list">
-									<li><a href="setinfo.jsp">个人信息设置</a> </li>
-									<li><a href="setpw.jsp">密码修改</a></li>
+									<li><a href="teacher/update.action">个人信息设置</a> </li>
+									<li><a href="teacher/updatePW.action">密码修改</a></li>
 								</ul>
 						</li>
-						<li><a href="tables.jsp"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
+						<li><a href="knowledge/listTeaKnowledge!listTeaKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="chat.jsp">我的讨论</a> </li>
+								<li><a href="teacher/chat.action">我的讨论</a> </li>
 							</ul>
 						</li>      
-						<li><a href="uploads.jsp"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
+						<li><a href="teacher/upload.action"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>用户中心</span></a> 
 							<ul class="sub-menu-list">
-								<li><a href="tearegister.jsp">登录</a> </li>
-								<li><a href="register.jsp">注册</a></li>
-								<li><a href="blank_page.jsp">404</a></li>
+								<li><a href="index.action">登录</a> </li>
+								<li><a href="teacher/register.action">注册</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -123,7 +122,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
@@ -164,7 +162,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/1.png" alt=""></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -196,7 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</a>
 								<ul class="dropdown-menu drp-mnu">
 									<li> <a href="teacher/showInfo.action"><i class="fa fa-user"></i>个人信息查看</a> </li> 
-									<li> <a href="login.jsp"><i class="fa fa-sign-out"></i>退出</a> </li>
+									<li> <a href="teacher/logout.action"><i class="fa fa-sign-out"></i>退出</a> </li>
 								</ul>
 							</li>
 							<div class="clearfix"> </div>

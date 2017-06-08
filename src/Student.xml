@@ -11,18 +11,32 @@
             <!-- 开发模式下打印详细的错误信息 -->  
     <constant name="struts.ui.theme" value="xhtml"/> 
 	<package name="student" namespace="/student" extends="struts-default"> 
-    	<action name="showInfo">  
+        <action name="start" class="manage.action.studentAction">
+			<result name="success">/stustart.jsp</result>
+			<result name="error">/blank_page.jsp</result>
+		</action> 
+        <action name="showInfo">  
             <result name="success">/showstuinfo.jsp</result>  
         </action>
-        <action name="setInfo">
+        <action name="update">
         	<result name="success">/setstuinfo.jsp</result>
         </action>
-        <action name="setpw">
+        <action name="updatePW">
         	<result name="success">/setpw.jsp</result>
+        </action>
+        <action name="register">
+        	<result name="success">/sturegister.jsp</result>
+        </action>
+        <action name="chat">
+        	<result name="success">/chat.jsp</result>
         </action>
         <action name="updateStudent" class="manage.action.studentAction">
         	<result name="success">/showstuinfo.jsp</result>
         	<result name="error">/setstuinfo.jsp</result>
+        </action>
+        <action name="listWatchLog" class="manage.action.watchLogAction">
+        	<result name="success">/watchlog.jsp</result>
+        	<result name="error">/blank_page.jsp</result>
         </action>
     </package>
 </struts>  

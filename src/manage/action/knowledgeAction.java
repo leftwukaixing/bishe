@@ -1,15 +1,18 @@
 package manage.action;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
 import manage.entity.Knowledge;
-import manage.entity.Teacher;
+import manage.entity.Student;
+import manage.entity.WatchLog;
 import manage.service.knowledgeService;
+import manage.service.studentService;
 import manage.service.watchLogService;
 import manage.util.UpdateUtil;
 
@@ -31,10 +34,13 @@ public class knowledgeAction extends ActionSupport{
 	private String fileName;
 	//知识点信息
 	private Knowledge klg;
+	
 	//教师查看知识点list
 	private List<Knowledge> list;
 	//教师查看时观看状态记录<kno,number>
 	private Map<String,String> map;
+	//学生总数
+	private int countStu = 0;
 	
 	@Autowired
 	private knowledgeService service;
@@ -42,10 +48,13 @@ public class knowledgeAction extends ActionSupport{
 	@Autowired
 	private watchLogService wservice;
 	
+	@Autowired
+	private studentService sservice;
+	
 	//保存文件
 	private File newfile;
 	//获得请求
-	private HttpServletRequest request;
+	//private HttpServletRequest request;
 	//获取上下文信息
 	private ServletContext sc;
 	//保存文件路径
@@ -58,16 +67,14 @@ public class knowledgeAction extends ActionSupport{
 	 * @return
 	 */
 	public String uploadKnowledge(){
-		request = ServletActionContext.getRequest();
-		Map<String,Object> map = ActionContext.getContext().getSession();
-		Teacher teacher = (Teacher)map.get("user");
+		//request = ServletActionContext.getRequest();
 		fileName = fileName.substring(fileName.lastIndexOf("\\")+1,fileName.length());
 		try {
 			//request.setCharacterEncoding("UTF-8");
 			if (fileName.endsWith(".mp4") || fileName.endsWith(".rmvb") || 
 					fileName.endsWith(".3GP") || fileName.endsWith(".AVI") 
 					|| fileName.endsWith(".wma") || fileName.endsWith(".flash") 
-					|| fileName.endsWith(".rm") || fileName.endsWith(".mid")){
+					|| fileName.endsWith(".rm") || fileName.endsWith(".wmv")){
 		        sc = ServletActionContext.getServletContext();
 		        //路径名为.../media/tno-tname.xml
 				uploadpath = sc.getRealPath("/") + "media/"
@@ -92,10 +99,55 @@ public class knowledgeAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	/**
+	 * 教师用户查看知识点列表
+	 * @return
+	 */
 	public String listTeaKnowledge(){
-		list = service.select_Knowledges();
-		for(Knowledge obj:list){
-			wservice.select_WatchLogs(obj.getKno());
+		map = new HashMap<String,String>();
+		try {
+			list = service.select_Knowledges();
+			for(Knowledge obj:list){
+				List<WatchLog> wlist = new ArrayList<WatchLog>();
+				int num = 0;
+				wlist = wservice.select_WatchLogs_By_Kno(obj.getKno());
+				for (WatchLog wo : wlist){
+					if (wo.getStatus().equals("1")) {
+						num ++;
+					}
+				}
+				map.put(obj.getKno(), String.valueOf(num));
+			}
+			countStu = sservice.select_count();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	
+	/**
+	 * 学生用户查看知识点列表
+	 * @return
+	 */
+	public String listStuKnowledge() {
+		map = new HashMap<String,String>();
+		Map<String,Object> amap = ActionContext.getContext().getSession();
+		Student student = (Student)amap.get("user");
+		try {
+			list = service.select_Knowledges();
+			for(Knowledge obj:list){
+				List<WatchLog> wlist = new ArrayList<WatchLog>();
+				wlist = wservice.select_WatchLogs_By_Sno(student.getSno());
+				for (WatchLog wo : wlist){
+					if (obj.getKno().equals(wo.getKno())) {
+						map.put(obj.getKno(), wo.getStatus());
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
 		}
 		return SUCCESS;
 	}
@@ -139,5 +191,13 @@ public class knowledgeAction extends ActionSupport{
 
 	public void setMap(Map<String, String> map) {
 		this.map = map;
+	}
+
+	public int getCountStu() {
+		return countStu;
+	}
+
+	public void setCountStu(int countStu) {
+		this.countStu = countStu;
 	}
 }

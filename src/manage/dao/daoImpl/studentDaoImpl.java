@@ -26,5 +26,9 @@ public class studentDaoImpl implements studentDao{
 		// TODO Auto-generated method stub
 		sqlSessionTemplate.update("update_Student", stu);
 	}
+	
+	public int select_count(){
+		return sqlSessionTemplate.selectOne("select_count");
+	}
 }
 	

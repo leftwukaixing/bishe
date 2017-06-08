@@ -9,6 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <title>登录</title>
+<base href=" <%=basePath%>"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -84,8 +85,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="new_people">
 							<h4>新用户</h4>
 							<p>注册到Java语言翻转课堂教学模式系统，即可开启你全新的学习体验或教学方式，快快加入吧！</p>
-							<a href="tearegister.jsp">教师注册!</a>
-							<a href="sturegister.jsp">学生注册!</a>
+							<a href="teacher/register.action">教师注册!</a>
+							<a href="student/register.action">学生注册!</a>
 						</div>
 					</div>
 				</div>
