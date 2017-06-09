@@ -27,9 +27,6 @@
         <action name="register">
         	<result name="success">/sturegister.jsp</result>
         </action>
-        <action name="chat">
-        	<result name="success">/chat.jsp</result>
-        </action>
         <action name="updateStudent" class="manage.action.studentAction">
         	<result name="success">/showstuinfo.jsp</result>
         	<result name="error">/setstuinfo.jsp</result>

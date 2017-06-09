@@ -9,5 +9,6 @@
         <mapper resource="manage/mapper/user.xml"/>
         <mapper resource="manage/mapper/knowledge.xml"/>
         <mapper resource="manage/mapper/watchLog.xml"/>
+        <mapper resource="manage/mapper/chat.xml"></mapper>
     </mappers>  
 </configuration>  

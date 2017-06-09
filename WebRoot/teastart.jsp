@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="knowledge/listTeaKnowledge!listTeaKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="teacher/chat.action">我的讨论</a> </li>
+								<li><a href="chat/listChat!listChat">我的讨论</a> </li>
 							</ul>
 						</li>      
 						<li><a href="teacher/upload.action"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>

@@ -70,6 +70,10 @@ public class loginAction extends ActionSupport{
 		}	
 	}
 	
+	/**
+	 * 密码修改
+	 * @return
+	 */
 	public String updatePW(){
 		Map<String,Object> amap = ActionContext.getContext().getSession();
 		Object obj = amap.get("user");
@@ -77,9 +81,12 @@ public class loginAction extends ActionSupport{
 		if (obj instanceof Student) {
 			Student stu = (Student)obj;
 			ud = service.select_user(new User(stu.getSno(),""));
-		} else {
+		} else if (obj instanceof Teacher){
 			Teacher tea = (Teacher)obj;
 			ud = service.select_user(new User(tea.getTno(),""));
+		} else {
+			error_msg = "对不起！密码修改失败，可能是原始密码错误，请确认。^_^";
+			return ERROR;
 		}
 		if (ud.getPwd().equals(oldPW)) {
 			try {

@@ -2,8 +2,7 @@
 <!DOCTYPE struts PUBLIC   
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
     "http://struts.apache.org/dtds/struts-2.0.dtd">   
-<struts> 
-	<constant name="struts.multipart.maxSize" value="900000000"/>  
+<struts>   
     <constant name="struts.i18n.encoding" value="UTF-8"/>  
             <!-- 指定默认编码集 ，作用于HttpServletRequest的setCharacterEncoding（）和freemarker，vilocity的输出 -->  
     <constant name="struts.configuration.xmlreload" value="true"/>  
@@ -11,15 +10,20 @@
     <constant name="struts.devMode" value="true"/>  
             <!-- 开发模式下打印详细的错误信息 -->  
     <constant name="struts.ui.theme" value="xhtml"/> 
-    <!--登陆管理 -->
-	<include file="Login.xml" />
-	<!--用户管理 -->
-	<include file="Teacher.xml" />
-	<!--学生管理-->
-	<include file="Student.xml" />
-	<!--知识点管理-->
-	<include file="Knowledge.xml"/>
-	<!--聊天信息管理-->
-	<include file="Chat.xml"/>
+   
+    <package name="chat" namespace="/chat" extends="struts-default"> 
+    	<action name="addChat" class="manage.action.chatAction">
+            <result name="success" type="redirectAction">
+            	<param name="namespace">/chat</param>
+            	<param name="actionName">listChat!listChat</param>
+            </result>
+            <result name="error">/blank_page.jsp</result>
+        </action>
+        <action name="listChat" class="manage.action.chatAction">
+        	<result name="success">/chat.jsp</result>
+        	<result name="error">/blank_page.jsp</result>
+        </action>
+    </package> 
+    
 </struts>  
 

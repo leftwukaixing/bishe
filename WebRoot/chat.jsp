@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head> 
    
  <body class="sticky-header left-side-collapsed"  onload="initMap()">
-    <section>
+    c<section>
     <!-- left side start-->
 		<div class="left-side sticky-left-side">
 
@@ -83,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="knowledge/listStuKnowledge!listStuKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="student/chat.action">我的讨论</a> </li>
+								<li><a href="chat/listChat!listChat">我的讨论</a> </li>
 							</ul>
 						</li>      
 						<li><a href="student/listWatchLog!listWatchLog"><i class="lnr lnr-select"></i> <span>观看记录</span></a></li>
@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="knowledge/listTeaKnowledge!listTeaKnowledge"><i class="lnr lnr-menu"></i> <span>知识点列表</span></a></li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>消息中心</span></a>
 							<ul class="sub-menu-list">
-								<li><a href="teacher/chat.action">我的讨论</a> </li>
+								<li><a href="chat/listChat!listChat">我的讨论</a> </li>
 							</ul>
 						</li>      
 						<li><a href="teacher/upload.action"><i class="lnr lnr-select"></i> <span>视频上传</span></a></li>
@@ -150,7 +150,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/1.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor sit amet </p>
 												<p><span>1 hour ago</span></p>
@@ -247,56 +246,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col_1">
 			<div class="col-md-12 span_10">
 				<div class="activity_box activity_box1">
-					<h3>chat</h3>
+					<h3>聊天室</h3>
 					<div class="scrollbar" id="style-2">
-						<div class="activity-row activity-row1">
-							<div class="col-xs-3 activity-img"><img src='images/1.png' class="img-responsive" alt=""/><span>10:00 PM</span></div>
-							<div class="col-xs-5 activity-img1">
-								<div class="activity-desc-sub">
-									<h5>张三</h5>
-									<p>Hello !</p>
+						<s:iterator var="obj" value="list">
+							<s:if test="#obj.uno == #session.user.sno">
+						  		<div class="activity-row activity-row1">
+									<div class="col-xs-3 activity-desc1"></div>
+									<div class="col-xs-6 activity-img2">
+										<div class="activity-desc-sub1">
+											<p><s:property value="#obj.content"/></p>
+										</div>
+									</div>
+									<div class="col-xs-3 activity-img">
+										<h5><s:property value="map[#obj.uno]"/></h5><span><s:property value="#obj.chat_time"/></span>
+									</div>
+									<div class="clearfix"> </div>
 								</div>
-							</div>
-							<div class="col-xs-4 activity-desc1"></div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="activity-row activity-row1">
-							<div class="col-xs-2 activity-desc1"></div>
-							<div class="col-xs-7 activity-img2">
-								<div class="activity-desc-sub1">
-									<h5>吴开星</h5>
-									<p>Hi！</p>
+						  	</s:if>
+						  	<s:elseif test="#obj.uno == #session.user.tno">
+						  		<div class="activity-row activity-row1">
+									<div class="col-xs-3 activity-desc1"></div>
+									<div class="col-xs-6 activity-img2">
+										<div class="activity-desc-sub1">
+											<p><s:property value="#obj.content"/></p>
+										</div>
+									</div>
+									<div class="col-xs-3 activity-img">
+										<h5><s:property value="map[#obj.uno]"/></h5><span><s:property value="#obj.chat_time"/></span>
+									</div>
+									<div class="clearfix"> </div>
 								</div>
-							</div>
-							<div class="col-xs-3 activity-img"><img src='images/kaixing.png' class="img-responsive" alt=""/><span>10:02 PM</span></div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="activity-row activity-row1">
-							<div class="col-xs-3 activity-img"><img src='images/1.png' class="img-responsive" alt=""/><span>10:00 PM</span></div>
-							<div class="col-xs-5 activity-img1">
-								<div class="activity-desc-sub">
-									<h5>李四</h5>
-									<p>今天天气真好，适合出去玩耍!</p>
+						  	</s:elseif>
+						  	<s:else>
+						  		<div class="activity-row activity-row1">
+									<div class="col-xs-3 activity-img">
+										<h5><s:property value="map[#obj.uno]"/></h5><span><s:property value="#obj.chat_time"/></span>
+									</div>
+									<div class="col-xs-5 activity-img1">
+										<div class="activity-desc-sub">
+											<p><s:property value="#obj.content"/></p>
+										</div>
+									</div>
+									<div class="col-xs-4 activity-desc1"></div>
+									<div class="clearfix"> </div>
 								</div>
-							</div>
-							<div class="col-xs-4 activity-desc1"></div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="activity-row activity-row1">
-							<div class="col-xs-2 activity-desc1"></div>
-							<div class="col-xs-7 activity-img2">
-								<div class="activity-desc-sub1">
-									<h5>吴开星</h5>
-									<p>对呀，我们去逛植物园呀！</p>
-								</div>
-							</div>
-							<div class="col-xs-3 activity-img"><img src='images/kaixing.png' class="img-responsive" alt=""/><span>10:02 PM</span></div>
-							<div class="clearfix"> </div>
-						</div>
+						  	</s:else>
+						</s:iterator>
 					</div>
-					<form>
-						<input type="text" value="Enter your text" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your text';}" required="">
-						<input type="submit" value="Send" required=""/>		
+					<form action="chat/addChat!addChat" method="post">
+						<input type="text" name="chat.content" value="在这里输入你想说的内容吧~~~" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '在这里输入你想说的内容吧~~~';}" required="">
+						<input type="submit" value="发送" class="btn btn-primary" required=""/>		
 					</form>
 				</div>
 			</div>

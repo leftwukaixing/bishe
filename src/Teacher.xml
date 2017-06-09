@@ -30,9 +30,6 @@
         <action name="register">
         	<result name="success">/tearegister.jsp</result>
         </action>
-        <action name="chat">
-        	<result name="success">/chat.jsp</result>
-        </action>
         <action name="logout">
         	<result name="success">/login.jsp</result>
         </action>

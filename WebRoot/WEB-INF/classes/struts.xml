@@ -19,5 +19,7 @@
 	<include file="Student.xml" />
 	<!--知识点管理-->
 	<include file="Knowledge.xml"/>
+	<!--聊天信息管理-->
+	<include file="Chat.xml"/>
 </struts>  
 
