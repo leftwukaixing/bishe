@@ -35,6 +35,8 @@
         	<result name="success">/watchlog.jsp</result>
         	<result name="error">/blank_page.jsp</result>
         </action>
+        <action name="updateWatchLog" class="manage.action.watchLogAction">
+        </action>
     </package>
 </struts>  
 

@@ -22,4 +22,16 @@ public class watchLogService {
 	public List<WatchLog> select_WatchLogs_By_Sno(String sno){
 		return dao.select_WatchLogs_By_Sno(sno);
 	}
+	
+	public void update_WatchLog(WatchLog wlg) {
+		dao.update_WatchLog(wlg);
+	}
+	
+	public void add_WatchLog(WatchLog wlg){
+		dao.add_WatchLog(wlg);
+	}
+	
+	public WatchLog select_WatchLog(WatchLog wlg){
+		return dao.select_WatchLog(wlg);
+	}
 }

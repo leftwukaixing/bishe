@@ -7,5 +7,16 @@
 	</select> 
 	<select id="select_watchLogs_by_sno" parameterType="String" resultType="manage.entity.WatchLog">
 		select * from watch_log where sno=#{sno}
+	</select>
+	<select id="select_watchLog" parameterType="manage.entity.WatchLog" resultType="manage.entity.WatchLog">
+		select * from watch_log where sno=#{sno} and kno=#{kno}
 	</select> 
+	<insert id="add_watchLog" parameterType="manage.entity.WatchLog" >
+		insert into watch_log(sno,kno,progress,status,watch_time) 
+		values(#{sno},#{kno},#{progress},#{status},#{watch_time})
+	</insert>
+	<update id="update_watchLog" parameterType="manage.entity.WatchLog">
+		update watch_log set progress=#{progress},status=#{status},watch_time=#{watch_time} 
+		where sno=#{sno} and kno=#{kno}
+	</update>
 </mapper>

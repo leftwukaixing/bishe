@@ -24,4 +24,19 @@ public class watchLogDaoImpl implements watchLogDao{
 		return sqlSessionTemplate.selectList("select_watchLogs_by_sno",sno);
 	}
 
+	public void update_WatchLog(WatchLog wlg) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.update("update_watchLog", wlg);
+	}
+
+	public void add_WatchLog(WatchLog wlg) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.insert("add_watchLog", wlg);
+	}
+
+	public WatchLog select_WatchLog(WatchLog wlg) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("select_watchLog", wlg);
+	}
+
 }

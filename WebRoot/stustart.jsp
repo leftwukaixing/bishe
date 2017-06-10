@@ -212,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 			<div class="col-md-9 span_9">
 				<video id="my-player" class="video-js" controls preload="auto" poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'>
-					<source src="media/test.mp4" ></source>
+					<source src="media/1-test.mp4" ></source>
 				</video>
 			</div>
 
@@ -293,6 +293,24 @@ function changeSource(obj) {
     video.src='media/'+obj.value+'.mp4';
     video.load();
 }
+
+//
+$('.left-side-inner a').click(function(){
+	var video = document.getElementsByTagName('video')[0];
+	var sources = video.getElementsByTagName('source');
+	var progress = video.currentTime;
+	var vlength = video.duration;
+	var href = sources[0].src;
+	if (progress == vlength) {
+		status = 1;
+	} else {
+		status = 0;
+	}
+	$.ajax({
+		type:"POST",
+		url:"student/updateWatchLog!updateWatchLog?wlg.progress="+progress+"&wlg.status="+status+"&wlg.href="+href
+	});
+});
 </script>	
 </body>
 </html>
